@@ -1,7 +1,33 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { page } from "../../constants/constants";
+import { LogContext } from "../../context";
+import { getUserRole, validateCrentials } from "../../services/loginService";
 
 const Login = () => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [isLoggedIn, setIsLoggedIn] = useContext(LogContext);
+
+  const navigate = useNavigate();
+
+  const handleLogin = (e) => {
+    if (validateCrentials(username, password)) {
+      console.log("success");
+      setIsLoggedIn(true);
+      const role = getUserRole(username, password);
+      localStorage.setItem("user_role", role);
+    }
+  };
+
+  useEffect(() => {
+    const role = localStorage.getItem("user_role");
+    console.log("User role", role, isLoggedIn);
+    if (Object.keys(page).includes(role)) {
+      navigate(page[role]);
+    }
+  });
+
   return (
     <section className="vh-100" style={{ backgroundColor: "#232659" }}>
       <div className="login-container py-5 h-100">
@@ -30,17 +56,33 @@ const Login = () => {
                   </h5>
 
                   <div className="form-control">
-                    <input type="email" id="form2Example17" className="" />
+                    <input
+                      value={username}
+                      onChange={(e) => setUsername(e.target.value)}
+                      type="email"
+                      id="form2Example17"
+                      className=""
+                    />
                     <label className="form-label">Email address</label>
                   </div>
 
                   <div className="form-control">
-                    <input type="password" id="form2Example27" className="" />
+                    <input
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      type="password"
+                      id="form2Example27"
+                      className=""
+                    />
                     <label className="form-label">Password</label>
                   </div>
 
                   <div style={{ marginBottom: "10px" }}>
-                    <button className="login-button" type="button">
+                    <button
+                      className="login-button"
+                      type="button"
+                      onClick={handleLogin}
+                    >
                       Login
                     </button>
                   </div>

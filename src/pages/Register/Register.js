@@ -1,7 +1,15 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { page } from "../../constants/constants";
 
 const Register = () => {
+  const navigate = useNavigate();
+  useEffect(() => {
+    const role = localStorage.getItem("user_role");
+    if (Object.keys(page).includes(role)) {
+      navigate(page[role]);
+    }
+  });
   return (
     <section className="vh-100" style={{ backgroundColor: "#232659" }}>
       <div className="login-container py-5 h-100">
