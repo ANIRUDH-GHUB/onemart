@@ -1,28 +1,23 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { page } from "../../constants/constants";
-import { LogContext } from "../../context";
-import { getUserRole, validateCrentials } from "../../services/loginService";
 
-const Login = () => {
+const ForgotPassword = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [isLoggedIn, setIsLoggedIn] = useContext(LogContext);
+  const [confirmPassword, setConfirmPassword] = useState("");
 
   const navigate = useNavigate();
 
-  const handleLogin = (e) => {
-    if (validateCrentials(username, password)) {
+  const handleSubmit = (e) => {
+    if (password === confirmPassword) {
+      navigate("/login");
       console.log("success");
-      setIsLoggedIn(true);
-      const role = getUserRole(username, password);
-      localStorage.setItem("user_role", role);
     }
   };
 
   useEffect(() => {
     const role = localStorage.getItem("user_role");
-    console.log("User role", role, isLoggedIn);
     if (Object.keys(page).includes(role)) {
       navigate(page[role]);
     }
@@ -48,12 +43,8 @@ const Login = () => {
                       className="fas fa-cubes fa-2x me-3"
                       style={{ color: "#ff6219" }}
                     ></i>
-                    <span className="h1 fw-bold mb-0">Onemart</span>
+                    <span className="h1 fw-bold mb-0">Forgot password</span>
                   </div>
-
-                  <h5 className="fw-normal" style={{ letterSpacing: "1px" }}>
-                    Sign into your account
-                  </h5>
 
                   <div className="form-control">
                     <input
@@ -76,20 +67,30 @@ const Login = () => {
                     />
                     <label className="form-label">Password</label>
                   </div>
+                  <div className="form-control">
+                    <input
+                      value={confirmPassword}
+                      onChange={(e) => setConfirmPassword(e.target.value)}
+                      type="password"
+                      id="form2Example27"
+                      className=""
+                    />
+                    <label className="form-label">Confirm Password</label>
+                  </div>
 
                   <div style={{ marginBottom: "10px" }}>
                     <button
                       className="login-button"
                       type="button"
-                      onClick={handleLogin}
+                      onClick={handleSubmit}
                     >
-                      Login
+                      Submit
                     </button>
                   </div>
 
-                  <Link className="small" to="/forgot">
+                  <a className="small" href="#!">
                     Forgot password?
-                  </Link>
+                  </a>
                   <p style={{ color: "#393f81" }}>
                     Don't have an account?
                     <Link to="/register" style={{ color: "#393f81" }}>
@@ -112,4 +113,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default ForgotPassword;

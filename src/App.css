@@ -506,10 +506,9 @@ form > div .requirements {
 
 .form-control {
   margin-bottom: 1rem;
-  width: 100%;
+  width: 300px;
   display: flex;
   flex-direction: column;
-  width: 100%;
 }
 
 input[type="submit"] {
@@ -576,6 +575,7 @@ Login
 .login-card .card-item {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 .login-card .fw-normal {
   margin-bottom: 1rem !important;
@@ -1227,3 +1227,17 @@ Login
 }
 
 /*Footer*/
+
+/* Payment */
+.rccs {
+  padding: 20px;
+}
+.w-35 {
+  width: 35% !important;
+}
+
+.two-column {
+  flex-direction: row;
+  justify-content: space-between;
+}
+/* Payment */

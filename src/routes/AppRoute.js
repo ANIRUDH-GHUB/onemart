@@ -2,7 +2,9 @@ import React from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import ProtectedRoute from "../common/ProtectedRoute";
 import Navbar from "../component/Navbar/Navbar";
+import Payment from "../component/Payment/Payment";
 import { userRole } from "../constants/constants";
+import ForgotPassword from "../pages/ForgotPassword/ForgotPassword";
 import Homepage from "../pages/Homepage/Homepage";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
@@ -21,7 +23,7 @@ const AppRoute = () => {
         <Route
           path="/superadmin"
           element={
-            <ProtectedRoute userRole={[userRole.admin]}>
+            <ProtectedRoute>
               <SuperAdmin />
             </ProtectedRoute>
           }
@@ -29,8 +31,17 @@ const AppRoute = () => {
         <Route
           path="/student"
           element={
-            <ProtectedRoute userRole={[userRole.student]}>
+            <ProtectedRoute>
               <StudentHome />
+            </ProtectedRoute>
+          }
+        />
+        <Route path="/forgot" element={<ForgotPassword />} />
+        <Route
+          path="/payment"
+          element={
+            <ProtectedRoute>
+              <Payment />
             </ProtectedRoute>
           }
         />
