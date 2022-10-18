@@ -12,12 +12,14 @@ const Navbar = () => {
     localStorage.removeItem("user_role");
     setIsLoggedIn(false);
   };
+  const fetchUserRole = () => localStorage.getItem("user_role");
+
   return (
     <header>
       <nav className="navbar fixed-top">
         <div className="navbar-container">
           <a href="#" className="navbar-brand">
-            <img src="./assets/icons/logo.svg" />
+            <img src="/assets/icons/logo.svg" />
           </a>
           <button className="nav-toggler" id="navToggler">
             <span className="burger-icon"></span>
@@ -45,10 +47,11 @@ const Navbar = () => {
                 </a>
               </li>
               {isLoggedIn ? (
-                <li class="nav-item">
-                  <div class="dropdown">
-                    <button class="dropbtn">My Profile</button>
-                    <div class="dropdown-content">
+                <li className="nav-item">
+                  <div className="dropdown">
+                    <button className="dropbtn">My Profile</button>
+                    <div className="dropdown-content">
+                      <Link to={fetchUserRole()}>Profile</Link>
                       <a href="./mycart.html">My Cart</a>
                       <Link to="/" onClick={handleLogout}>
                         Sign Out

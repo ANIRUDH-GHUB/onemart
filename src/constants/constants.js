@@ -11,12 +11,12 @@ export const userRole = {
   superadmin: "superadmin",
   schooladmin: "schooladmin",
   student: "student",
-  businessOwner: "businessOwner",
+  businessowner: "businessowner",
 };
 
 export const page = {
-  superAdmin: "/superadmin",
-  schoolAdmin: "/schooladmin",
+  superadmin: "/superadmin",
+  schooldmin: "/schooladmin",
   student: "/student",
-  businessOwner: "/businessowner",
+  businessowner: "/businessowner",
 };

@@ -506,9 +506,10 @@ form > div .requirements {
 
 .form-control {
   margin-bottom: 1rem;
-  width: 300px;
+  width: 100%;
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 input[type="submit"] {
@@ -575,7 +576,6 @@ Login
 .login-card .card-item {
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 .login-card .fw-normal {
   margin-bottom: 1rem !important;
@@ -1086,7 +1086,7 @@ Login
 }
 
 .product_bo .product {
-  height: 10%;
+  height: 130px;
 }
 
 .product_bo1 .product {
@@ -1227,17 +1227,3 @@ Login
 }
 
 /*Footer*/
-
-/* Payment */
-.rccs {
-  padding: 20px;
-}
-.w-35 {
-  width: 35% !important;
-}
-
-.two-column {
-  flex-direction: row;
-  justify-content: space-between;
-}
-/* Payment */

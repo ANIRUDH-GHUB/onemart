@@ -1,10 +1,13 @@
 import { Navigate } from "react-router-dom";
 import { userRole } from "../constants/constants";
+import Unathorised from "../pages/Unathorised/Unathorised";
 
-const ProtectedRoute = ({ children }) => {
-  const role = localStorage.getItem("user_role");
-  if (role && Object.values(userRole).includes(role)) {
+const ProtectedRoute = ({ children, role }) => {
+  const cachedRole = localStorage.getItem("user_role");
+  if (cachedRole && cachedRole === role) {
     return children;
+  } else if (cachedRole) {
+    return <Unathorised />;
   }
 
   return <Navigate to="/login" replace />;

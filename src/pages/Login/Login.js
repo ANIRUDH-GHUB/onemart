@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { page } from "../../constants/constants";
+import { page, userRole } from "../../constants/constants";
 import { LogContext } from "../../context";
 import { getUserRole, validateCrentials } from "../../services/loginService";
 
@@ -23,7 +23,7 @@ const Login = () => {
   useEffect(() => {
     const role = localStorage.getItem("user_role");
     console.log("User role", role, isLoggedIn);
-    if (Object.keys(page).includes(role)) {
+    if (Object.keys(userRole).includes(role)) {
       navigate(page[role]);
     }
   });

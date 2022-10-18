@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Michael Watt",
+    "description": "Computer Science Engineering",
+    "image": "/assets/images/user1.JPG"
+  },
+  {
+    "name": "Glennn Marx",
+    "description": "Electricals Engineering",
+    "image": "/assets/images/user2.JPG"
+  },
+  {
+    "name": "Satya Sharma",
+    "description": "Aeronautics Engineering",
+    "image": "/assets/images/user3.jpg"
+  },
+  {
+    "name": "Anuhya Desai",
+    "description": "Chemical Engineering",
+    "image": "/assets/images/user1.JPG"
+  },
+  {
+    "name": "Valerie Alex",
+    "description": "Computer Science",
+    "image": "/assets/images/user2.JPG"
+  },
+  {
+    "name": "John Doe",
+    "description": "Management",
+    "image": "/assets/images/user3.jpg"
+  }
+]

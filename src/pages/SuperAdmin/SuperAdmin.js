@@ -1,26 +1,27 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const SuperAdmin = () => {
   return (
     <div>
       <section>
-        <div class="herosection" id="home">
-          <div class="hero-container">
+        <div className="herosection" id="home">
+          <div className="hero-container">
             <img
               src="./assets/icons/column-chart-example.svg"
               alt=""
-              class="hero-image"
+              className="hero-image"
             />
-            <div class="hero-rightside-admin">
-              <div class="all-analytics">
+            <div className="hero-rightside-admin">
+              <div className="all-analytics">
                 <h2>Total Number of Business owners</h2>
                 <h4>146</h4>
               </div>
-              <div class="all-analytics">
+              <div className="all-analytics">
                 <h2>Total Number of Clubs</h2>
                 <h4>1200</h4>
               </div>
-              <div class="all-analytics">
+              <div className="all-analytics">
                 <h2>Total Number of Products</h2>
                 <h4>48</h4>
               </div>
@@ -28,27 +29,27 @@ const SuperAdmin = () => {
           </div>
         </div>
 
-        <div class="outer-container-admin" id="outer-container">
-          <div class="manage-btn view-more">
-            <a href="supermanagePosts.html">Manage Posts</a>
+        <div className="outer-container-admin" id="outer-container">
+          <div className="manage-btn view-more">
+            <Link to="posts">Manage Posts</Link>
           </div>
-          <div class="manage-btn view-more">
-            <a href="supermanageClubs.html">Manage Clubs</a>
+          <div className="manage-btn view-more">
+            <Link to="clubs">Manage Clubs</Link>
           </div>
-          <div class="manage-btn view-more">
-            <a href="supermanageStudents.html">Manage Students</a>
+          <div className="manage-btn view-more">
+            <Link to="students">Manage Students</Link>
           </div>
-          <div class="manage-btn view-more">
-            <a href="supermanageBusinesses.html">Manage Businesses</a>
+          <div className="manage-btn view-more">
+            <Link to="business">Manage Businesses</Link>
           </div>
-          <div class="manage-btn view-more">
-            <a href="supermanageSchools.html">Manage Schools</a>
+          <div className="manage-btn view-more">
+            <Link to="schools">Manage Schools</Link>
           </div>
         </div>
       </section>
 
-      <div class="fixed-bottom">
-        <div class="chat">CHAT!!!</div>
+      <div className="fixed-bottom">
+        <div className="chat">CHAT!!!</div>
       </div>
     </div>
   );
