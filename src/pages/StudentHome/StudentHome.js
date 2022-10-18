@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const StudentHome = () => {
   return (
@@ -71,9 +72,9 @@ const StudentHome = () => {
                 </div>
 
                 <div className="view-more">
-                  <a href="products.html" target="_blank">
+                  <Link to="products" target="_blank">
                     View More
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -122,9 +123,9 @@ const StudentHome = () => {
                   </div>
                 </div>
                 <div className="view-more">
-                  <a href="clubs.html" target="_blank">
+                  <Link to="clubs" target="_blank">
                     View More
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -177,9 +178,9 @@ const StudentHome = () => {
                   </div>
                 </div>
                 <div className="view-more">
-                  <a href="posts.html" target="_blank">
+                  <Link to="posts" target="_blank">
                     View More
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>

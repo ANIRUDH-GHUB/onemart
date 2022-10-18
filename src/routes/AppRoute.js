@@ -13,7 +13,11 @@ import ForgotPassword from "../pages/ForgotPassword/ForgotPassword";
 import Homepage from "../pages/Homepage/Homepage";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
+import StudenCreateClub from "../pages/StudentHome/StudenCreateClub";
+import StudentClubs from "../pages/StudentHome/StudentClubs";
 import StudentHome from "../pages/StudentHome/StudentHome";
+import StudentPosts from "../pages/StudentHome/StudentPosts";
+import StudentProducts from "../pages/StudentHome/StudentProducts";
 import SuperAdmin from "../pages/SuperAdmin/SuperAdmin";
 import SuperCreateBusiness from "../pages/SuperAdmin/SuperCreateBusiness";
 import SuperCreateClubs from "../pages/SuperAdmin/SuperCreateClubs";
@@ -89,14 +93,28 @@ const AppRoute = () => {
           </Route>
         </Route>
 
-        <Route
-          path="student"
-          element={
-            <ProtectedRoute role={userRole.student}>
-              <StudentHome />
-            </ProtectedRoute>
-          }
-        />
+        <Route path="student">
+          <Route
+            path=""
+            element={
+              <ProtectedRoute role={userRole.student}>
+                <StudentHome />
+              </ProtectedRoute>
+            }
+          ></Route>
+          <Route path="products">
+            <Route path="" element={<StudentProducts />} />
+            <Route path="sell" element={<BusinessSellProducts />} />
+          </Route>
+          <Route path="posts">
+            <Route path="" element={<StudentPosts />} />
+            <Route path="create" element={<SuperCreatePosts />} />
+          </Route>
+          <Route path="clubs">
+            <Route path="" element={<StudentClubs />} />
+            <Route path="create" element={<StudenCreateClub />} />
+          </Route>
+        </Route>
         <Route
           path="products"
           element={<ProtectedRoute>{/* <Products /> */}</ProtectedRoute>}
