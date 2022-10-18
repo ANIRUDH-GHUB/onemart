@@ -9,10 +9,12 @@ import BusinessManageAdds from "../pages/BusinessOwner/BusinessManageAdds";
 import BusinessManageProducts from "../pages/BusinessOwner/BusinessManageProducts";
 import BusinessOwner from "../pages/BusinessOwner/BusinessOwner";
 import BusinessSellProducts from "../pages/BusinessOwner/BusinessSellProducts";
+import Cart from "../pages/Cart/Cart";
 import ForgotPassword from "../pages/ForgotPassword/ForgotPassword";
 import Homepage from "../pages/Homepage/Homepage";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
+import SchoolAdmin from "../pages/SchoolAdmin/SchoolAdmin";
 import StudenCreateClub from "../pages/StudentHome/StudenCreateClub";
 import StudentClubs from "../pages/StudentHome/StudentClubs";
 import StudentHome from "../pages/StudentHome/StudentHome";
@@ -30,6 +32,7 @@ import SuperManagePosts from "../pages/SuperAdmin/SuperManagePosts";
 import SuperManageSchools from "../pages/SuperAdmin/SuperManageSchools";
 import SuperManageStudents from "../pages/SuperAdmin/SuperManageStudents";
 import Unathorised from "../pages/Unathorised/Unathorised";
+import { fetchUserRole } from "../util/util";
 
 const AppRoute = () => {
   return (
@@ -64,6 +67,32 @@ const AppRoute = () => {
           <Route path="schools">
             <Route path="" element={<SuperManageSchools />} />
             <Route path="create" element={<SuperCreateSchools />} />
+          </Route>
+          <Route path="students">
+            <Route path="" element={<SuperManageStudents />} />
+            <Route path="create" element={<SuperCreateStudent />} />
+          </Route>
+        </Route>
+        <Route path="schooladmin">
+          <Route
+            path=""
+            element={
+              <ProtectedRoute role={userRole.schooladmin}>
+                <SchoolAdmin />
+              </ProtectedRoute>
+            }
+          />
+          <Route path="business">
+            <Route path="" element={<SuperManageBusiness />} />
+            <Route path="create" element={<SuperCreateBusiness />} />
+          </Route>
+          <Route path="posts">
+            <Route path="" element={<SuperManagePosts />} />
+            <Route path="create" element={<SuperCreatePosts />} />
+          </Route>
+          <Route path="clubs">
+            <Route path="" element={<SuperManageClubs />} />
+            <Route path="create" element={<SuperCreateClubs />} />
           </Route>
           <Route path="students">
             <Route path="" element={<SuperManageStudents />} />
@@ -115,15 +144,20 @@ const AppRoute = () => {
             <Route path="create" element={<StudenCreateClub />} />
           </Route>
         </Route>
-        <Route
-          path="products"
-          element={<ProtectedRoute>{/* <Products /> */}</ProtectedRoute>}
-        />
         <Route path="forgot" element={<ForgotPassword />} />
+
+        <Route
+          path="cart"
+          element={
+            <ProtectedRoute role={fetchUserRole()}>
+              <Cart />
+            </ProtectedRoute>
+          }
+        />
         <Route
           path="payment"
           element={
-            <ProtectedRoute>
+            <ProtectedRoute role={fetchUserRole()}>
               <Payment />
             </ProtectedRoute>
           }

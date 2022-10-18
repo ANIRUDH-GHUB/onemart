@@ -16,7 +16,7 @@ export const userRole = {
 
 export const page = {
   superadmin: "/superadmin",
-  schooldmin: "/schooladmin",
+  schooladmin: "/schooladmin",
   student: "/student",
   businessowner: "/businessowner",
 };

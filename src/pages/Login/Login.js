@@ -22,8 +22,8 @@ const Login = () => {
 
   useEffect(() => {
     const role = localStorage.getItem("user_role");
-    console.log("User role", role, isLoggedIn);
     if (Object.keys(userRole).includes(role)) {
+      console.log("User role", page[role], isLoggedIn);
       navigate(page[role]);
     }
   });

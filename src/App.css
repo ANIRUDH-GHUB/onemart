@@ -576,6 +576,7 @@ Login
 .login-card .card-item {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 .login-card .fw-normal {
   margin-bottom: 1rem !important;

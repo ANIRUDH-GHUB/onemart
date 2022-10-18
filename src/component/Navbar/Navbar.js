@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { LogContext } from "../../context";
+import { fetchUserRole } from "../../util/util";
 import "./Navbar.css";
 
 const Navbar = () => {
@@ -12,7 +13,6 @@ const Navbar = () => {
     localStorage.removeItem("user_role");
     setIsLoggedIn(false);
   };
-  const fetchUserRole = () => localStorage.getItem("user_role");
 
   return (
     <header>
@@ -52,7 +52,7 @@ const Navbar = () => {
                     <button className="dropbtn">My Profile</button>
                     <div className="dropdown-content">
                       <Link to={fetchUserRole()}>Profile</Link>
-                      <a href="./mycart.html">My Cart</a>
+                      <Link to="/cart">My Cart</Link>
                       <Link to="/" onClick={handleLogout}>
                         Sign Out
                       </Link>
