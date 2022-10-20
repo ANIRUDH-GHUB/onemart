@@ -15,10 +15,16 @@ export const cartSlice = createSlice({
     },
     getCartDetais: (state) => state.cart,
     addToCart: (state, action) => {
-      state.cart = [...state.cart, action.payload];
+      const item = {
+        name: action?.payload?.name || "",
+        price: action?.payload?.price || 0,
+        qt: action?.payload?.qt || 1,
+        image: action?.payload?.image || "",
+        id: Math.floor(Math.random() * 10000000),
+      };
+      state.cart = [...state.cart, item];
     },
     removeFromCart: (state, action) => {
-      console.log(action.payload);
       state.cart = state.cart?.filter((item) => item.id != action.payload);
     },
   },
