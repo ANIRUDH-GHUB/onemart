@@ -1,8 +1,10 @@
 import { useState } from "react";
+import { Provider } from "react-redux";
 import "./App.css";
 import { LogContext } from "./context";
 import AppRoute from "./routes/AppRoute";
 import { isUserLoggedIn } from "./services/loginService";
+import { store } from "./state/store";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(isUserLoggedIn());
@@ -10,7 +12,9 @@ function App() {
   return (
     <div className="App">
       <LogContext.Provider value={[isLoggedIn, setIsLoggedIn]}>
-        <AppRoute />
+        <Provider store={store}>
+          <AppRoute />
+        </Provider>
       </LogContext.Provider>
     </div>
   );

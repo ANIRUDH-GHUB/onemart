@@ -1,22 +1,22 @@
 import React from "react";
 import CardStack from "../CardStack/CardStack";
-import svg from "./../../assets/icons/heroicon.svg";
+import svg from "./../../asset/icons/heroicon.svg";
 
 const Herosection = () => {
   const productList = [
     {
       label: "StarBucks",
-      image: "./assets/images/machito.jpg",
+      image: "./asset/images/machito.jpg",
       description: "Machito Coffee",
     },
     {
       label: "M & M",
-      image: "./assets/images/mandm.jpg",
+      image: "./asset/images/mandm.jpg",
       description: "Chocolate",
     },
     {
       label: "Subway",
-      image: "./assets/images/sandwich.jpg",
+      image: "./asset/images/sandwich.jpg",
       description: "Footlong",
     },
   ];
@@ -24,17 +24,17 @@ const Herosection = () => {
   const placeList = [
     {
       label: "Subway",
-      image: "./assets/images/subway-open.jpg",
+      image: "./asset/images/subway-open.jpg",
       description: "Footlong",
     },
     {
       label: "StarBucks",
-      image: "./assets/images/starbucks-open.jpg",
+      image: "./asset/images/starbucks-open.jpg",
       description: "Machito Coffee",
     },
     {
       label: "Chick Fil A",
-      image: "./assets/images/chick-fil-a.jpg",
+      image: "./asset/images/chick-fil-a.jpg",
       description: "Open",
     },
   ];

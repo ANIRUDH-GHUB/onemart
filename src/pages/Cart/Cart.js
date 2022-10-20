@@ -1,110 +1,100 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { fetchCart, removeFromCart } from "../../state/slices/cartSlice";
 
 const Cart = () => {
+  const { cart } = useSelector((state) => state);
+  const dispatch = useDispatch();
+  const [cartValue, setCartValue] = useState({
+    subtotal: 0,
+    tax: 0,
+    shipping: 0,
+    total: 0,
+  });
+  const tax = 5 / 100;
+
+  useEffect(() => {
+    // dispatch(fetchCart());
+  }, []);
+
+  useEffect(() => {
+    const subtotal = calculateSubTotal();
+    setCartValue({
+      subtotal: subtotal,
+      tax: subtotal * tax,
+      shipping: subtotal ? 15 : 0,
+      total: subtotal + subtotal * tax + (subtotal ? 15 : 0),
+    });
+  }, [cart]);
+
+  const onRemove = (id) => {
+    dispatch(removeFromCart(id));
+  };
+
+  const calculateSubTotal = () =>
+    cart?.cart?.reduce((acc, curr) => acc + curr.qt * curr.price, 0);
+
   return (
     <section className="vh-500" style={{ backgroundColor: "#232659" }}>
       <div className="wrapper">
         <h1>My Cart</h1>
-        <div className="cart">
-          <div className="cartproducts">
-            <div className="product">
-              <div className="pdt_img">
-                <img src="assets/images/algorithm.jpg" alt="ok" />
-              </div>
-              <div className="description">
-                <h3>
-                  Introduction to Algorithms, 3rd Edition (The MIT Press) 3rd
-                  Edition
-                </h3>
-                <h4>$35</h4>
-                <p className="quantity">
-                  Quantity: <input name="" value="2" />
-                </p>
-                <p className="btn-remove">
-                  {" "}
-                  <span className="btn2">Remove</span>
-                </p>
-              </div>
+        {cart?.cart?.length ? (
+          <div className="cart">
+            <div className="cartproducts">
+              {cart?.cart?.map((item) => (
+                <div className="product" key={item.id}>
+                  <div className="pdt_img">
+                    <img src={item.image} alt="ok" />
+                  </div>
+                  <div className="description">
+                    <h3>{item.name}</h3>
+                    <h4>${item.price}</h4>
+                    <p className="quantity">
+                      Quantity: <span>+</span>
+                      <span>{item.qt}</span>
+                      <span>-</span>
+                    </p>
+                    <p className="btn-remove" onClick={() => onRemove(item.id)}>
+                      {" "}
+                      <span className="btn2">Remove</span>
+                    </p>
+                  </div>
+                </div>
+              ))}
             </div>
-            <div className="product">
-              <div className="pdt_img">
-                <img src="assets/images/starbucks.jpg" alt="ok" />
-              </div>
-              <div className="description">
-                <h3>Starbucks Coffee, Ground, Maple Pecan - 17 oz</h3>
-                <h4>$20</h4>
-                <p className="quantity">
-                  Quantity: <input name="" value="1" />
-                </p>
-                <p className="btn-remove">
-                  {" "}
-                  <span className="btn2">Remove</span>
-                </p>
-              </div>
-            </div>
-            <div className="product">
-              <div className="pdt_img">
-                <img src="assets/images/headphones.jpg" alt="ok" />
-              </div>
-              <div className="description">
-                <h3>Bose SoundLink around-ear wireless headphones II- Black</h3>
-                <h4>$50</h4>
-                <p className="quantity">
-                  Quantity: <input name="" value="1" />
-                </p>
-                <p className="btn-remove">
-                  {" "}
-                  <span className="btn2">Remove</span>
-                </p>
-              </div>
-            </div>
-            <div className="product">
-              <div className="pdt_img">
-                <img src="assets/images/waterbottle.jpg" alt="ok" />
-              </div>
-              <div className="description">
-                <h3>
-                  TOPOKO Wide Mouth Water Bottle 40OZ Capacity Stainless Steel
-                  Vacuum Insulated Water Bottle
-                </h3>
-                <h4>$15</h4>
-                <p className="quantity">
-                  Quantity: <input name="" value="1" />
-                </p>
-                <p className="btn-remove">
-                  {" "}
-                  <span className="btn2">Remove</span>
-                </p>
-              </div>
+            <div className="price-details">
+              <p>
+                <span>Subtotal</span> <span>${cartValue.subtotal}</span>
+              </p>
+              <hr />
+              <p>
+                <span>Tax</span> <span>${cartValue.tax}</span>
+              </p>
+              <hr />
+              <p>
+                <span>Shipping Cost</span> <span>${cartValue.shipping}</span>
+              </p>
+              <hr />
+              <p>
+                <span>
+                  <b>Total</b>
+                </span>{" "}
+                <span>
+                  <b>${cartValue.total}</b>
+                </span>
+              </p>
+              <Link to="/payment">
+                <i className="fa fa-shopping-cart"></i>Checkout
+              </Link>
             </div>
           </div>
-          <div className="price-details">
-            <p>
-              <span>Subtotal</span> <span>$120</span>
-            </p>
-            <hr />
-            <p>
-              <span>Tax</span> <span>$6</span>
-            </p>
-            <hr />
-            <p>
-              <span>Shipping Cost</span> <span>$15</span>
-            </p>
-            <hr />
-            <p>
-              <span>
-                <b>Total</b>
-              </span>{" "}
-              <span>
-                <b>$141</b>
-              </span>
-            </p>
-            <Link to="/payment">
-              <i className="fa fa-shopping-cart"></i>Checkout
-            </Link>
+        ) : (
+          <div class="empty-cart">
+            <img src="/asset/icons/empty.svg" />
+            <p>Uh-Oh your cart is empty</p>
           </div>
-        </div>
+        )}
       </div>
     </section>
   );

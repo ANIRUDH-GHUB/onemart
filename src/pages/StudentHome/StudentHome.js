@@ -8,7 +8,7 @@ const StudentHome = () => {
         <div className="herosection" id="home">
           <div className="hero-container">
             <img
-              src="./assets/images/starbucks-open.jpg"
+              src="./asset/images/starbucks-open.jpg"
               alt=""
               className="hero-image"
             />
@@ -29,7 +29,7 @@ const StudentHome = () => {
                 <div
                   className="card-item"
                   style={{
-                    backgroundImage: `url(${"./assets/images/machito.jpg"})`,
+                    backgroundImage: `url(${"./asset/images/machito.jpg"})`,
                   }}
                 >
                   <div className="card-content">
@@ -40,7 +40,7 @@ const StudentHome = () => {
                 <div
                   className="card-item"
                   style={{
-                    backgroundImage: `url(${"./assets/images/mandm.jpg"})`,
+                    backgroundImage: `url(${"./asset/images/mandm.jpg"})`,
                   }}
                 >
                   <div className="card-content">
@@ -51,7 +51,7 @@ const StudentHome = () => {
                 <div
                   className="card-item"
                   style={{
-                    backgroundImage: `url(${"./assets/images/sandwich.jpg"})`,
+                    backgroundImage: `url(${"./asset/images/sandwich.jpg"})`,
                   }}
                 >
                   <div className="card-content">
@@ -62,7 +62,7 @@ const StudentHome = () => {
                 <div
                   className="card-item"
                   style={{
-                    backgroundImage: `url(${"./assets/images/chikfila.jpg"})`,
+                    backgroundImage: `url(${"./asset/images/chikfila.jpg"})`,
                   }}
                 >
                   <div className="card-content">
@@ -85,7 +85,7 @@ const StudentHome = () => {
                 <div
                   className="card-item"
                   style={{
-                    backgroundImage: `url(${"./assets/images/unity2.JPG"})`,
+                    backgroundImage: `url(${"./asset/images/unity2.JPG"})`,
                   }}
                 >
                   <div className="card-content">
@@ -95,7 +95,7 @@ const StudentHome = () => {
                 <div
                   className="card-item"
                   style={{
-                    backgroundImage: `url(${"./assets/images/freeSpeech.jpg"})`,
+                    backgroundImage: `url(${"./asset/images/freeSpeech.jpg"})`,
                   }}
                 >
                   <div className="card-content">
@@ -105,7 +105,7 @@ const StudentHome = () => {
                 <div
                   className="card-item"
                   style={{
-                    backgroundImage: `url(${"./assets/images/womensclub.jpg"})`,
+                    backgroundImage: `url(${"./asset/images/womensclub.jpg"})`,
                   }}
                 >
                   <div className="card-content">
@@ -115,7 +115,7 @@ const StudentHome = () => {
                 <div
                   className="card-item"
                   style={{
-                    backgroundImage: `url(${"./assets/images/helpingHand.jpg"})`,
+                    backgroundImage: `url(${"./asset/images/helpingHand.jpg"})`,
                   }}
                 >
                   <div className="card-content">
@@ -136,7 +136,7 @@ const StudentHome = () => {
                 <div
                   className="card-item"
                   style={{
-                    backgroundImage: `url(${"./assets/images/lifeSciences.jpg"})`,
+                    backgroundImage: `url(${"./asset/images/lifeSciences.jpg"})`,
                   }}
                 >
                   <div className="card-content">
@@ -147,7 +147,7 @@ const StudentHome = () => {
                 <div
                   className="card-item"
                   style={{
-                    backgroundImage: `url(${"./assets/images/dataBreach.jpg"})`,
+                    backgroundImage: `url(${"./asset/images/dataBreach.jpg"})`,
                   }}
                 >
                   <div className="card-content">
@@ -158,7 +158,7 @@ const StudentHome = () => {
                 <div
                   className="card-item"
                   style={{
-                    backgroundImage: `url(${"./assets/images/web3.JPG"})`,
+                    backgroundImage: `url(${"./asset/images/web3.JPG"})`,
                   }}
                 >
                   <div className="card-content">
@@ -169,7 +169,7 @@ const StudentHome = () => {
                 <div
                   className="card-item"
                   style={{
-                    backgroundImage: `url(${"./assets/images/halloween.jpg"})`,
+                    backgroundImage: `url(${"./asset/images/halloween.jpg"})`,
                   }}
                 >
                   <div className="card-content">
@@ -188,7 +188,7 @@ const StudentHome = () => {
 
           <div className="right-side-container">
             <div className="advertisement">
-              <img src="assets/images/adbo.jpg" alt="starbucks" />
+              <img src="/asset/images/adbo.jpg" alt="starbucks" />
               <p>Grab your Deals NOW!!!</p>
             </div>
           </div>

@@ -7,7 +7,7 @@ const BusinessOwner = () => {
       <div class="herosection" id="home">
         <div class="hero-container">
           <img
-            src="/assets/images/starbucks-open.jpg"
+            src="/asset/images/starbucks-open.jpg"
             alt=""
             class="hero-image"
           />
@@ -28,7 +28,7 @@ const BusinessOwner = () => {
               <div
                 class="card-item"
                 style={{
-                  backgroundImage: `url(${"/assets/images/starbucks3.jpg"})`,
+                  backgroundImage: `url(${"/asset/images/starbucks3.jpg"})`,
                 }}
               >
                 <div class="card-content">
@@ -39,7 +39,7 @@ const BusinessOwner = () => {
               <div
                 class="card-item"
                 style={{
-                  backgroundImage: `url(${"/assets/images/starbucks2.jpg"})`,
+                  backgroundImage: `url(${"/asset/images/starbucks2.jpg"})`,
                 }}
               >
                 <div class="card-content">
@@ -50,7 +50,7 @@ const BusinessOwner = () => {
               <div
                 class="card-item"
                 style={{
-                  backgroundImage: `url(${"/assets/images/starbucks1.jpg"})`,
+                  backgroundImage: `url(${"/asset/images/starbucks1.jpg"})`,
                 }}
               >
                 <div class="card-content">
@@ -62,7 +62,7 @@ const BusinessOwner = () => {
               <div
                 class="card-item"
                 style={{
-                  backgroundImage: `url(${"/assets/images/starbucks4.jpg"})`,
+                  backgroundImage: `url(${"/asset/images/starbucks4.jpg"})`,
                 }}
               >
                 <div class="card-content">
@@ -82,7 +82,7 @@ const BusinessOwner = () => {
               <div
                 class="card-item"
                 style={{
-                  backgroundImage: `url(${"/assets/images/lifeSciences.jpg"})`,
+                  backgroundImage: `url(${"/asset/images/lifeSciences.jpg"})`,
                 }}
               >
                 <div class="card-content">
@@ -93,7 +93,7 @@ const BusinessOwner = () => {
               <div
                 class="card-item"
                 style={{
-                  backgroundImage: `url(${"/assets/images/dataBreach.jpg"})`,
+                  backgroundImage: `url(${"/asset/images/dataBreach.jpg"})`,
                 }}
               >
                 <div class="card-content">
@@ -103,7 +103,7 @@ const BusinessOwner = () => {
               </div>
               <div
                 class="card-item"
-                style={{ backgroundImage: `url(${"/assets/images/web3.JPG"})` }}
+                style={{ backgroundImage: `url(${"/asset/images/web3.JPG"})` }}
               >
                 <div class="card-content">
                   <h1>Krishna Mohan</h1>
@@ -113,7 +113,7 @@ const BusinessOwner = () => {
               <div
                 class="card-item"
                 style={{
-                  backgroundImage: `url(${"/assets/images/halloween.jpg"})`,
+                  backgroundImage: `url(${"/asset/images/halloween.jpg"})`,
                 }}
               >
                 <div class="card-content">
@@ -133,7 +133,7 @@ const BusinessOwner = () => {
               <div
                 class="card-item"
                 style={{
-                  backgroundImage: `url(${"/assets/images/starbucks.jpg"})`,
+                  backgroundImage: `url(${"/asset/images/starbucks.jpg"})`,
                 }}
               >
                 <div class="card-content">
@@ -144,7 +144,7 @@ const BusinessOwner = () => {
               <div
                 class="card-item"
                 style={{
-                  backgroundImage: `url(${"/assets/images/starbucks1.jpg"})`,
+                  backgroundImage: `url(${"/asset/images/starbucks1.jpg"})`,
                 }}
               >
                 <div class="card-content">
@@ -155,7 +155,7 @@ const BusinessOwner = () => {
               <div
                 class="card-item"
                 style={{
-                  backgroundImage: `url(${"/assets/images/starbucks2.jpg"})`,
+                  backgroundImage: `url(${"/asset/images/starbucks2.jpg"})`,
                 }}
               >
                 <div class="card-content">
@@ -166,7 +166,7 @@ const BusinessOwner = () => {
               <div
                 class="card-item"
                 style={{
-                  backgroundImage: `url(${"/assets/images/starbucks3.jpg"})`,
+                  backgroundImage: `url(${"/asset/images/starbucks3.jpg"})`,
                 }}
               >
                 <div class="card-content">
@@ -183,7 +183,7 @@ const BusinessOwner = () => {
 
         <div class="right-side-container">
           <div class="advertisement">
-            <img src="/assets/images/adbo1.jpg" alt="adbo" />
+            <img src="/asset/images/adbo1.jpg" alt="adbo" />
             <p> Grab your Deak NOW!! </p>
           </div>
           <div class="view-more advertise-btn">

@@ -8,7 +8,7 @@ const BusinessSellProducts = () => {
           <div class="card-stack">
             <div class="card-item">
               <object
-                data="/assets/icons/login.svg"
+                data="/asset/icons/login.svg"
                 type="image/svg+xml"
                 style={{ width: "100%" }}
               ></object>

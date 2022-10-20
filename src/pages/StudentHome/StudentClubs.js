@@ -10,7 +10,7 @@ const StudentClubs = () => {
           <div class="cartproducts">
             <div class="product">
               <div class="pdt_img">
-                <img src="/assets/images/unity.JPG" alt="ok" />
+                <img src="/asset/images/unity.JPG" alt="ok" />
               </div>
               <div class="description">
                 <h3>Mav Involve</h3>
@@ -28,7 +28,7 @@ const StudentClubs = () => {
             <h1>Other Clubs</h1>
             <div class="product">
               <div class="pdt_img">
-                <img src="/assets/images/freeSpeech.jpg" alt="ok" />
+                <img src="/asset/images/freeSpeech.jpg" alt="ok" />
               </div>
               <div class="description">
                 <h3>Free Speech</h3>
@@ -41,7 +41,7 @@ const StudentClubs = () => {
             <h1>Explore Clubs</h1>
             <div class="product">
               <div class="pdt_img">
-                <img src="/assets/images/dataBreach.jpg" alt="ok" />
+                <img src="/asset/images/dataBreach.jpg" alt="ok" />
               </div>
               <div class="description">
                 <h3>Hackathon</h3>
@@ -53,7 +53,7 @@ const StudentClubs = () => {
             </div>
             <div class="product">
               <div class="pdt_img">
-                <img src="/assets/images/databaseTextbook.jpg" alt="ok" />
+                <img src="/asset/images/databaseTextbook.jpg" alt="ok" />
               </div>
               <div class="description">
                 <h3>Study Mate</h3>
@@ -66,7 +66,7 @@ const StudentClubs = () => {
           </div>
 
           <div class="price-details">
-            <img src="/assets/images/adbo1.jpg" alt="waterbottle" />
+            <img src="/asset/images/adbo1.jpg" alt="waterbottle" />
           </div>
         </div>
       </div>

@@ -38,7 +38,7 @@ const Payment = () => {
           <div className="card-stack">
             {paid ? (
               <div>
-                <img src="/assets/images/payment-success.gif" />
+                <img src="/asset/images/payment-success.gif" />
               </div>
             ) : (
               <>

@@ -1,7 +1,7 @@
 import React from "react";
-import exchange from "./../../assets/icons/service-exchange.svg";
-import club from "./../../assets/icons/service-club.svg";
-import books from "./../../assets/icons/service-books.svg";
+import exchange from "./../../asset/icons/service-exchange.svg";
+import club from "./../../asset/icons/service-club.svg";
+import books from "./../../asset/icons/service-books.svg";
 
 const Services = () => {
   return (

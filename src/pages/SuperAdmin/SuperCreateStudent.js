@@ -8,7 +8,7 @@ const SuperCreateStudent = () => {
           <div className="card-stack">
             <div className="card-item">
               <object
-                data="/assets/icons/login.svg"
+                data="/asset/icons/login.svg"
                 type="image/svg+xml"
                 style={{ width: "100%" }}
               ></object>

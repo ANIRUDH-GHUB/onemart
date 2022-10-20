@@ -19,7 +19,7 @@ const Navbar = () => {
       <nav className="navbar fixed-top">
         <div className="navbar-container">
           <a href="#" className="navbar-brand">
-            <img src="/assets/icons/logo.svg" />
+            <img src="/asset/icons/logo.svg" />
           </a>
           <button className="nav-toggler" id="navToggler">
             <span className="burger-icon"></span>

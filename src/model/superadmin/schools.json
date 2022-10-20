@@ -2,21 +2,21 @@
   {
     "name": "UTA",
     "description": "Major- CSE",
-    "image": "/assets/images/uta.jpg"
+    "image": "/asset/images/uta.jpg"
   },
   {
     "name": "UTD",
     "description": "Major- CE",
-    "image": "/assets/images/utd.png"
+    "image": "/asset/images/utd.png"
   },
   {
     "name": "Halloween",
     "description": "Major- Biology",
-    "image": "/assets/images/halloween.jpg"
+    "image": "/asset/images/halloween.jpg"
   },
   {
     "name": "GIT",
     "description": "Cyber Security",
-    "image": "/assets/images/web3.JPG"
+    "image": "/asset/images/web3.JPG"
   }
 ]

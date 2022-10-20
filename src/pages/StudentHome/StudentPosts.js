@@ -13,7 +13,7 @@ const StudentPosts = () => {
           <div className="cartproducts">
             <div className="product">
               <div className="pdt_img">
-                <img src="/assets/images/web3.JPG" alt="ok" />
+                <img src="/asset/images/web3.JPG" alt="ok" />
               </div>
               <div className="description">
                 <h3>Web 3.0</h3>
@@ -31,7 +31,7 @@ const StudentPosts = () => {
             <h1>Explore Posts</h1>
             <div className="product">
               <div className="pdt_img">
-                <img src="/assets/images/dataBreach.jpg" alt="ok" />
+                <img src="/asset/images/dataBreach.jpg" alt="ok" />
               </div>
               <div className="description">
                 <h3>Data Breach</h3>
@@ -43,7 +43,7 @@ const StudentPosts = () => {
             </div>
             <div className="product">
               <div className="pdt_img">
-                <img src="/assets/images/lifeSciences.jpg" alt="ok" />
+                <img src="/asset/images/lifeSciences.jpg" alt="ok" />
               </div>
               <div className="description">
                 <h3>Life Sciences</h3>
@@ -55,7 +55,7 @@ const StudentPosts = () => {
             </div>
             <div className="product">
               <div className="pdt_img">
-                <img src="/assets/images/halloween.jpg" alt="ok" />
+                <img src="/asset/images/halloween.jpg" alt="ok" />
               </div>
               <div className="description">
                 <h3>Halloween</h3>
@@ -67,7 +67,7 @@ const StudentPosts = () => {
             </div>
             <div className="product">
               <div className="pdt_img">
-                <img src="/assets/images/bigdata.jpg" alt="ok" />
+                <img src="/asset/images/bigdata.jpg" alt="ok" />
               </div>
               <div className="description">
                 <h3>Big Data</h3>
@@ -80,7 +80,7 @@ const StudentPosts = () => {
           </div>
 
           <div className="price-details">
-            <img src="/assets/images/adbo1.jpg" alt="waterbottle" />
+            <img src="/asset/images/adbo1.jpg" alt="waterbottle" />
           </div>
         </div>
       </div>

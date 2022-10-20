@@ -2,31 +2,31 @@
   {
     "name": "Free Speech",
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do ",
-    "image": "/assets/images/freeSpeech.jpg"
+    "image": "/asset/images/freeSpeech.jpg"
   },
   {
     "name": "Mav Involve",
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut",
-    "image": "/assets/images/unity.JPG"
+    "image": "/asset/images/unity.JPG"
   },
   {
     "name": "Hackathon",
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut",
-    "image": "/assets/images/dataBreach.jpg"
+    "image": "/asset/images/dataBreach.jpg"
   },
   {
     "name": "StudyMate",
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do ",
-    "image": "/assets/images/databaseTextbook.jpg"
+    "image": "/asset/images/databaseTextbook.jpg"
   },
   {
     "name": "CodeCamp",
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut",
-    "image": "/assets/images/dataBreach.jpg"
+    "image": "/asset/images/dataBreach.jpg"
   },
   {
     "name": "Empower",
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut",
-    "image": "/assets/images/unity2.JPG"
+    "image": "/asset/images/unity2.JPG"
   }
 ]

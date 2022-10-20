@@ -8,7 +8,7 @@ const SuperAdmin = () => {
         <div className="herosection" id="home">
           <div className="hero-container">
             <img
-              src="./assets/icons/column-chart-example.svg"
+              src="./asset/icons/column-chart-example.svg"
               alt=""
               className="hero-image"
             />

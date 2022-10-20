@@ -2,21 +2,21 @@
   {
     "name": "Frappuccino",
     "description": "$14",
-    "image": "/assets/images/starbucks1.jpg"
+    "image": "/asset/images/starbucks1.jpg"
   },
   {
     "name": "Japans Melon Tea",
     "description": "$6",
-    "image": "/assets/images/starbucks2.jpg"
+    "image": "/asset/images/starbucks2.jpg"
   },
   {
     "name": "Unicorn Cappuccino",
     "description": "$18",
-    "image": "/assets/images/starbucks3.jpg"
+    "image": "/asset/images/starbucks3.jpg"
   },
   {
     "name": "Machito Coffee",
     "description": "$15",
-    "image": "/assets/images/starbucks4.jpg"
+    "image": "/asset/images/starbucks4.jpg"
   }
 ]
