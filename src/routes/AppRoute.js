@@ -266,14 +266,6 @@ const AppRoute = () => {
                 </ProtectedRoute>
               }
             />
-            <Route
-              path="create"
-              element={
-                <ProtectedRoute role={userRole.student}>
-                  <SuperCreatePosts />
-                </ProtectedRoute>
-              }
-            />
           </Route>
           <Route path="adds">
             <Route
@@ -304,14 +296,24 @@ const AppRoute = () => {
               </ProtectedRoute>
             }
           ></Route>
-          <Route
-            path="myposts"
-            element={
-              <ProtectedRoute role={userRole.student}>
-                <MyPosts />
-              </ProtectedRoute>
-            }
-          ></Route>
+          <Route path="myposts">
+            <Route
+              path=""
+              element={
+                <ProtectedRoute role={userRole.student}>
+                  <MyPosts />
+                </ProtectedRoute>
+              }
+            ></Route>
+            <Route
+              path="create"
+              element={
+                <ProtectedRoute role={userRole.student}>
+                  <SuperCreatePosts />
+                </ProtectedRoute>
+              }
+            />
+          </Route>
           <Route path="myproducts">
             <Route
               path=""
