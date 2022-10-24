@@ -1,9 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Sidebar from "../../component/Sidebar/Sidebar";
 
 const StudentClubs = () => {
   return (
     <section class="vh-500" style={{ backgroundColor: "#232659" }}>
+      <Sidebar />
       <div class="wrapper">
         <h1></h1>
         <div class="cart">

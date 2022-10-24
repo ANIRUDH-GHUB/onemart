@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { LogContext } from "../../context";
 import "./Sidebar.css";
 
 const Sidebar = () => {
+  const [isLoggedIn, setIsLoggedIn] = useContext(LogContext);
+
+  const handleLogout = () => {
+    localStorage.removeItem("user_role");
+    setIsLoggedIn(false);
+  };
   return (
     <>
       <div className="area"></div>
@@ -28,8 +35,14 @@ const Sidebar = () => {
           </li>
           <li className="has-subnav">
             <Link to="/student/myclubs">
-              <i className="fa fa-users fa-2x"></i>
+              <i className="fa fa-user fa-2x"></i>
               <span className="nav-text">My Clubs</span>
+            </Link>
+          </li>
+          <li className="has-subnav">
+            <Link to="/student/clubs/joined">
+              <i className="fa fa-users fa-2x"></i>
+              <span className="nav-text">Joined Clubs</span>
             </Link>
           </li>
           <li>
@@ -54,10 +67,10 @@ const Sidebar = () => {
 
         <ul className="logout">
           <li>
-            <Link to="#">
+            <a onClick={() => handleLogout()}>
               <i className="fa fa-power-off fa-2x"></i>
               <span className="nav-text">Logout</span>
-            </Link>
+            </a>
           </li>
         </ul>
       </nav>

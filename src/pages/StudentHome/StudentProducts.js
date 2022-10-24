@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import Sidebar from "../../component/Sidebar/Sidebar";
 import { addToCart } from "../../state/slices/cartSlice";
 import productJson from "./../../model/student/products.json";
 
@@ -24,6 +25,7 @@ const StudentProducts = () => {
       className="vh-500 product_bo"
       style={{ backgroundColor: "#232659" }}
     >
+      <Sidebar />
       <div className="wrapper">
         <div className="cart">
           <div className="cartproducts">

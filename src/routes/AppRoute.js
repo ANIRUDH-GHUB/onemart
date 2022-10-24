@@ -15,6 +15,7 @@ import Homepage from "../pages/Homepage/Homepage";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import SchoolAdmin from "../pages/SchoolAdmin/SchoolAdmin";
+import JoinedClubs from "../pages/StudentHome/JoinedClubs";
 import MyClubs from "../pages/StudentHome/MyClubs";
 import MyPosts from "../pages/StudentHome/MyPosts";
 import MyProducts from "../pages/StudentHome/MyProducts";
@@ -378,6 +379,14 @@ const AppRoute = () => {
               element={
                 <ProtectedRoute role={userRole.student}>
                   <StudentClubs />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="joined"
+              element={
+                <ProtectedRoute role={userRole.student}>
+                  <JoinedClubs />
                 </ProtectedRoute>
               }
             />

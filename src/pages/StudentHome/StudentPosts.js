@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Sidebar from "../../component/Sidebar/Sidebar";
 
 const StudentPosts = () => {
   return (
@@ -7,6 +8,7 @@ const StudentPosts = () => {
       className="vh-500 product_bo"
       style={{ backgroundColor: "#232659" }}
     >
+      <Sidebar />
       <div className="wrapper">
         <h1></h1>
         <div className="cart">
