@@ -2,7 +2,7 @@ import React from "react";
 
 const SuperCreatePosts = () => {
   return (
-    <section className="vh-100" style={{ backgroundColor: "#232659" }}>
+    <section style={{ backgroundColor: "#232659" }}>
       <div className="login-container py-5 h-100">
         <div className="login-card" style={{ borderRadius: "1rem" }}>
           <div className="card-stack">
@@ -31,9 +31,7 @@ const SuperCreatePosts = () => {
                       className=""
                       placeholder="Enter the Post title here..."
                     />
-                    <label className="form-label" for="form2Example17">
-                      Post Title
-                    </label>
+                    <label className="form-label">Post Title</label>
                   </div>
 
                   <div className="form-control">

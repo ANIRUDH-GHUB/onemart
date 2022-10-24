@@ -53,24 +53,94 @@ const AppRoute = () => {
             }
           />
           <Route path="business">
-            <Route path="" element={<SuperManageBusiness />} />
-            <Route path="create" element={<SuperCreateBusiness />} />
+            <Route
+              path=""
+              element={
+                <ProtectedRoute role={userRole.student}>
+                  <SuperManageBusiness />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="create"
+              element={
+                <ProtectedRoute role={userRole.student}>
+                  <SuperCreateBusiness />
+                </ProtectedRoute>
+              }
+            />
           </Route>
           <Route path="posts">
-            <Route path="" element={<SuperManagePosts />} />
-            <Route path="create" element={<SuperCreatePosts />} />
+            <Route
+              path=""
+              element={
+                <ProtectedRoute role={userRole.student}>
+                  <SuperManagePosts />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="create"
+              element={
+                <ProtectedRoute role={userRole.student}>
+                  <SuperCreatePosts />
+                </ProtectedRoute>
+              }
+            />
           </Route>
           <Route path="clubs">
-            <Route path="" element={<SuperManageClubs />} />
-            <Route path="create" element={<SuperCreateClubs />} />
+            <Route
+              path=""
+              element={
+                <ProtectedRoute role={userRole.student}>
+                  <SuperManageClubs />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="create"
+              element={
+                <ProtectedRoute role={userRole.student}>
+                  <SuperCreateClubs />
+                </ProtectedRoute>
+              }
+            />
           </Route>
           <Route path="schools">
-            <Route path="" element={<SuperManageSchools />} />
-            <Route path="create" element={<SuperCreateSchools />} />
+            <Route
+              path=""
+              element={
+                <ProtectedRoute role={userRole.student}>
+                  <SuperManageSchools />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="create"
+              element={
+                <ProtectedRoute role={userRole.student}>
+                  <SuperCreateSchools />
+                </ProtectedRoute>
+              }
+            />
           </Route>
           <Route path="students">
-            <Route path="" element={<SuperManageStudents />} />
-            <Route path="create" element={<SuperCreateStudent />} />
+            <Route
+              path=""
+              element={
+                <ProtectedRoute role={userRole.student}>
+                  <SuperManageStudents />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="create"
+              element={
+                <ProtectedRoute role={userRole.student}>
+                  <SuperCreateStudent />
+                </ProtectedRoute>
+              }
+            />
           </Route>
         </Route>
         <Route path="schooladmin">
@@ -83,20 +153,76 @@ const AppRoute = () => {
             }
           />
           <Route path="business">
-            <Route path="" element={<SuperManageBusiness />} />
-            <Route path="create" element={<SuperCreateBusiness />} />
+            <Route
+              path=""
+              element={
+                <ProtectedRoute role={userRole.student}>
+                  <SuperManageBusiness />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="create"
+              element={
+                <ProtectedRoute role={userRole.student}>
+                  <SuperCreateBusiness />
+                </ProtectedRoute>
+              }
+            />
           </Route>
           <Route path="posts">
-            <Route path="" element={<SuperManagePosts />} />
-            <Route path="create" element={<SuperCreatePosts />} />
+            <Route
+              path=""
+              element={
+                <ProtectedRoute role={userRole.student}>
+                  <SuperManagePosts />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="create"
+              element={
+                <ProtectedRoute role={userRole.student}>
+                  <SuperCreatePosts />
+                </ProtectedRoute>
+              }
+            />
           </Route>
           <Route path="clubs">
-            <Route path="" element={<SuperManageClubs />} />
-            <Route path="create" element={<SuperCreateClubs />} />
+            <Route
+              path=""
+              element={
+                <ProtectedRoute role={userRole.student}>
+                  <SuperManageClubs />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="create"
+              element={
+                <ProtectedRoute role={userRole.student}>
+                  <SuperCreateClubs />
+                </ProtectedRoute>
+              }
+            />
           </Route>
           <Route path="students">
-            <Route path="" element={<SuperManageStudents />} />
-            <Route path="create" element={<SuperCreateStudent />} />
+            <Route
+              path=""
+              element={
+                <ProtectedRoute role={userRole.student}>
+                  <SuperManageStudents />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="create"
+              element={
+                <ProtectedRoute role={userRole.student}>
+                  <SuperCreateStudent />
+                </ProtectedRoute>
+              }
+            />
           </Route>
         </Route>
         <Route path="businessowner">
@@ -109,16 +235,58 @@ const AppRoute = () => {
             }
           />
           <Route path="products">
-            <Route path="" element={<BusinessManageProducts />} />
-            <Route path="sell" element={<BusinessSellProducts />} />
+            <Route
+              path=""
+              element={
+                <ProtectedRoute role={userRole.student}>
+                  <BusinessManageProducts />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="sell"
+              element={
+                <ProtectedRoute role={userRole.student}>
+                  <BusinessSellProducts />
+                </ProtectedRoute>
+              }
+            />
           </Route>
           <Route path="posts">
-            <Route path="" element={<SuperManagePosts />} />
-            <Route path="create" element={<SuperCreatePosts />} />
+            <Route
+              path=""
+              element={
+                <ProtectedRoute role={userRole.student}>
+                  <SuperManagePosts />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="create"
+              element={
+                <ProtectedRoute role={userRole.student}>
+                  <SuperCreatePosts />
+                </ProtectedRoute>
+              }
+            />
           </Route>
           <Route path="adds">
-            <Route path="" element={<BusinessManageAdds />} />
-            <Route path="create" element={<BusinessCreateAdd />} />
+            <Route
+              path=""
+              element={
+                <ProtectedRoute role={userRole.student}>
+                  <BusinessManageAdds />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="create"
+              element={
+                <ProtectedRoute role={userRole.student}>
+                  <BusinessCreateAdd />
+                </ProtectedRoute>
+              }
+            />
           </Route>
         </Route>
 
@@ -132,16 +300,58 @@ const AppRoute = () => {
             }
           ></Route>
           <Route path="products">
-            <Route path="" element={<StudentProducts />} />
-            <Route path="sell" element={<BusinessSellProducts />} />
+            <Route
+              path=""
+              element={
+                <ProtectedRoute role={userRole.student}>
+                  <StudentProducts />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="sell"
+              element={
+                <ProtectedRoute role={userRole.student}>
+                  <BusinessSellProducts />
+                </ProtectedRoute>
+              }
+            />
           </Route>
           <Route path="posts">
-            <Route path="" element={<StudentPosts />} />
-            <Route path="create" element={<SuperCreatePosts />} />
+            <Route
+              path=""
+              element={
+                <ProtectedRoute role={userRole.student}>
+                  <StudentPosts />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="create"
+              element={
+                <ProtectedRoute role={userRole.student}>
+                  <SuperCreatePosts />
+                </ProtectedRoute>
+              }
+            />
           </Route>
           <Route path="clubs">
-            <Route path="" element={<StudentClubs />} />
-            <Route path="create" element={<StudenCreateClub />} />
+            <Route
+              path=""
+              element={
+                <ProtectedRoute role={userRole.student}>
+                  <StudentClubs />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="create"
+              element={
+                <ProtectedRoute role={userRole.student}>
+                  <StudenCreateClub />
+                </ProtectedRoute>
+              }
+            />
           </Route>
         </Route>
         <Route path="forgot" element={<ForgotPassword />} />

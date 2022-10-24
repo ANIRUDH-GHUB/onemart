@@ -29,7 +29,7 @@ const Login = () => {
   });
 
   return (
-    <section className="vh-100" style={{ backgroundColor: "#232659" }}>
+    <section style={{ backgroundColor: "#232659" }}>
       <div className="login-container py-5 h-100">
         <div className="login-card" style={{ borderRadius: "1rem" }}>
           <div className="card-stack">

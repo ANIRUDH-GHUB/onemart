@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { LogContext } from "../../context";
 import { fetchUserRole } from "../../util/util";
@@ -6,9 +6,20 @@ import "./Navbar.css";
 
 const Navbar = () => {
   const [isLoggedIn, setIsLoggedIn] = useContext(LogContext);
+  const [width, setWidth] = useState(window.innerWidth);
+  const [toggle, setToggle] = useState(false);
+
   useEffect(() => {
-    console.log(isLoggedIn);
-  });
+    window.addEventListener("resize", () => {
+      setWidth(window.innerWidth);
+      if (window.innerWidth > 992) setToggle(false);
+    });
+    return window.removeEventListener("resize", () => {
+      setWidth(window.innerWidth);
+      if (window.innerWidth > 992) setToggle(false);
+    });
+  }, []);
+
   const handleLogout = () => {
     localStorage.removeItem("user_role");
     setIsLoggedIn(false);
@@ -18,67 +29,98 @@ const Navbar = () => {
     <header>
       <nav className="navbar fixed-top">
         <div className="navbar-container">
-          <a href="#" className="navbar-brand">
+          <a href="/#" className="navbar-brand">
             <img src="/asset/icons/logo.svg" />
           </a>
-          <button className="nav-toggler" id="navToggler">
+          <button
+            className="nav-toggler"
+            id="navToggler"
+            onClick={() => setToggle(!toggle)}
+          >
             <span className="burger-icon"></span>
           </button>
-          <div className="nav-collapse collapse" id="navList">
-            <ul className="nav-list">
-              <li className="nav-item">
-                <Link className="nav-link active" aria-current="page" to="home">
-                  Home
-                </Link>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#about">
-                  About
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#services">
-                  Services
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#contact">
-                  Contact
-                </a>
-              </li>
-              {isLoggedIn ? (
+          {(toggle || width > 992) && (
+            <div className="nav-collapse" id="navList">
+              <ul className="nav-list">
                 <li className="nav-item">
-                  <div className="dropdown">
-                    <button className="dropbtn">My Profile</button>
-                    <div className="dropdown-content">
-                      <Link to={fetchUserRole()}>Profile</Link>
-                      <Link to="/cart">My Cart</Link>
-                      <Link to="/" onClick={handleLogout}>
-                        Sign Out
-                      </Link>
-                    </div>
-                  </div>
+                  <Link
+                    onClick={() => setToggle(false)}
+                    className="nav-link active"
+                    aria-current="page"
+                    to="home"
+                  >
+                    Home
+                  </Link>
                 </li>
-              ) : (
-                <>
-                  <li className="nav-item d-flex">
-                    <Link className="nav-link" to="login">
-                      <button type="button" className="btn btn-success">
-                        Login
-                      </button>
-                    </Link>
+                <li className="nav-item">
+                  <a
+                    onClick={() => setToggle(false)}
+                    className="nav-link"
+                    href="/#about"
+                  >
+                    About
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a
+                    onClick={() => setToggle(false)}
+                    className="nav-link"
+                    href="/#services"
+                  >
+                    Services
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a
+                    onClick={() => setToggle(false)}
+                    className="nav-link"
+                    href="/#contact"
+                  >
+                    Contact
+                  </a>
+                </li>
+                {isLoggedIn ? (
+                  <li className="nav-item">
+                    <div className="dropdown">
+                      <button className="dropbtn">My Profile</button>
+                      <div className="dropdown-content">
+                        <Link to={fetchUserRole()}>Profile</Link>
+                        <Link to="/cart">My Cart</Link>
+                        <Link to="/" onClick={handleLogout}>
+                          Sign Out
+                        </Link>
+                      </div>
+                    </div>
                   </li>
-                  <li className="nav-item d-flex">
-                    <Link className="nav-link" to="register">
-                      <button type="button" className="btn btn-warning">
-                        Sign up
-                      </button>
-                    </Link>
-                  </li>
-                </>
-              )}
-            </ul>
-          </div>
+                ) : (
+                  <>
+                    <li className="nav-item d-flex">
+                      <Link
+                        onClick={() => setToggle(false)}
+                        className="nav-link"
+                        to="login"
+                      >
+                        <button type="button" className="btn btn-success">
+                          Login
+                        </button>
+                      </Link>
+                    </li>
+                    <li className="nav-item d-flex">
+                      <Link
+                        onClick={() => setToggle(false)}
+                        className="nav-link"
+                        to="register"
+                      >
+                        <button type="button" className="btn btn-warning">
+                          Sign up
+                        </button>
+                      </Link>
+                    </li>
+                  </>
+                )}
+              </ul>
+            </div>
+          )}
         </div>
       </nav>
     </header>

@@ -2,7 +2,7 @@ import React from "react";
 
 const SuperCreateStudent = () => {
   return (
-    <section className="vh-100" style={{ backgroundColor: "#232659" }}>
+    <section style={{ backgroundColor: "#232659" }}>
       <div className="login-container py-5 h-100">
         <div className="login-card" style={{ borderRadius: "1rem" }}>
           <div className="card-stack">
@@ -33,9 +33,7 @@ const SuperCreateStudent = () => {
                       className=""
                       placeholder="Enter the Student here..."
                     />
-                    <label className="form-label" for="form2Example17">
-                      Student Name
-                    </label>
+                    <label className="form-label">Student Name</label>
                   </div>
 
                   <div className="form-control">

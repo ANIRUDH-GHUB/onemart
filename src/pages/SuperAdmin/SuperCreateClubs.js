@@ -2,7 +2,7 @@ import React from "react";
 
 const SuperCreateClubs = () => {
   return (
-    <section className="vh-100" style={{ backgroundColor: "#232659" }}>
+    <section style={{ backgroundColor: "#232659" }}>
       <div className="login-container py-5 h-100">
         <div className="login-card" style={{ borderRadius: "1rem" }}>
           <div className="card-stack">
@@ -31,9 +31,7 @@ const SuperCreateClubs = () => {
                       className=""
                       placeholder="Enter the clubname here..."
                     />
-                    <label className="form-label" for="form2Example17">
-                      Club Name
-                    </label>
+                    <label className="form-label">Club Name</label>
                   </div>
                   <div className="form-control">
                     <input
@@ -42,9 +40,7 @@ const SuperCreateClubs = () => {
                       className=""
                       placeholder="Enter the club details..."
                     />
-                    <label className="form-label" for="form2Example17">
-                      Club Summary
-                    </label>
+                    <label className="form-label">Club Summary</label>
                   </div>
                   <div className="form-control">
                     <input

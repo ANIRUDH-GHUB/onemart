@@ -11,7 +11,7 @@ const Register = () => {
     }
   });
   return (
-    <section className="vh-100" style={{ backgroundColor: "#232659" }}>
+    <section style={{ backgroundColor: "#232659" }}>
       <div className="login-container py-5 h-100">
         <div className="login-card" style={{ borderRadius: "1rem" }}>
           <div className="card-stack">
@@ -39,33 +39,23 @@ const Register = () => {
 
                   <div className="form-control">
                     <input type="text" id="form2Example17" className="" />
-                    <label className="form-label" for="form2Example17">
-                      Name
-                    </label>
+                    <label className="form-label">Name</label>
                   </div>
                   <div className="form-control">
                     <input type="date" id="form2Example17" className="" />
-                    <label className="form-label" for="form2Example17">
-                      DOB
-                    </label>
+                    <label className="form-label">DOB</label>
                   </div>
                   <div className="form-control">
                     <input type="text" id="form2Example17" className="" />
-                    <label className="form-label" for="form2Example17">
-                      Address
-                    </label>
+                    <label className="form-label">Address</label>
                   </div>
                   <div className="form-control">
                     <input type="text" id="form2Example17" className="" />
-                    <label className="form-label" for="form2Example17">
-                      Contact
-                    </label>
+                    <label className="form-label">Contact</label>
                   </div>
                   <div className="form-control">
                     <input type="mail" id="form2Example17" className="" />
-                    <label className="form-label" for="form2Example17">
-                      Email Address
-                    </label>
+                    <label className="form-label">Email Address</label>
                   </div>
 
                   <div className="form-control">

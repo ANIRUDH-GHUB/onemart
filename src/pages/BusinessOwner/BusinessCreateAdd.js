@@ -33,9 +33,7 @@ const BusinessCreateAdd = () => {
                       className=""
                       placeholder="Enter the Advertiser here..."
                     />
-                    <label className="form-label" for="form2Example17">
-                      Advertiser name
-                    </label>
+                    <label className="form-label">Advertiser name</label>
                   </div>
 
                   <div className="form-control">
