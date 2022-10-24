@@ -1,9 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Sidebar from "../../component/Sidebar/Sidebar";
 
 const StudentHome = () => {
   return (
     <div className="homepage_bo">
+      <Sidebar />
       <section>
         <div className="herosection" id="home">
           <div className="hero-container">
@@ -70,12 +72,11 @@ const StudentHome = () => {
                     <h4>Chicken Sandwich</h4>
                   </div>
                 </div>
-
-                <div className="view-more">
-                  <Link to="products" target="_blank">
-                    View More
-                  </Link>
-                </div>
+              </div>
+              <div className="view-more">
+                <Link to="products" target="_blank">
+                  View More
+                </Link>
               </div>
             </div>
 
@@ -122,11 +123,11 @@ const StudentHome = () => {
                     <h1>HELPING HAND</h1>
                   </div>
                 </div>
-                <div className="view-more">
-                  <Link to="clubs" target="_blank">
-                    View More
-                  </Link>
-                </div>
+              </div>
+              <div className="view-more">
+                <Link to="clubs" target="_blank">
+                  View More
+                </Link>
               </div>
             </div>
 
@@ -177,11 +178,11 @@ const StudentHome = () => {
                     <h4>Halloween</h4>
                   </div>
                 </div>
-                <div className="view-more">
-                  <Link to="posts" target="_blank">
-                    View More
-                  </Link>
-                </div>
+              </div>
+              <div className="view-more">
+                <Link to="posts" target="_blank">
+                  View More
+                </Link>
               </div>
             </div>
           </div>
@@ -194,7 +195,6 @@ const StudentHome = () => {
           </div>
         </div>
       </section>
-
       <div className="fixed-bottom">
         <div className="chat">CHAT!!!</div>
       </div>

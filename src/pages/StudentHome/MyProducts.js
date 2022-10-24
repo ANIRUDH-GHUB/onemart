@@ -1,34 +1,26 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import React from "react";
 import { Link } from "react-router-dom";
-import { addToCart } from "../../state/slices/cartSlice";
 import productJson from "./../../model/student/products.json";
+import Sidebar from "../../component/Sidebar/Sidebar";
+import CardList from "../../component/CardList/CardList";
 
-const StudentProducts = () => {
+const MyProducts = () => {
   const products = productJson;
-  const dispatch = useDispatch();
 
-  const otherProduct = (products) =>
-    products.filter((item) => item.purchased === false && item.owner === false);
-
-  const onBuyorReturn = (e, item) => {
-    console.log(e.target.style);
-    e.target.style.backgroundColor = "#aaaaaa";
-    e.target.style.pointerEvents = "none";
-
-    dispatch(addToCart(item));
-  };
-
+  const ownerProduct = (products) =>
+    products.filter((item) => item.owner === true);
   return (
     <section
       className="vh-500 product_bo"
       style={{ backgroundColor: "#232659" }}
     >
+      <Sidebar />
+
       <div className="wrapper">
+        <h1>My Products</h1>
         <div className="cart">
           <div className="cartproducts">
-            <h1>Explore Products</h1>
-            {otherProduct(products).map((item) => (
+            {/* {ownerProduct(products).map((item) => (
               <div className="product">
                 <div className="pdt_img">
                   <img src={item.image} alt="ok" />
@@ -36,16 +28,14 @@ const StudentProducts = () => {
                 <div className="description">
                   <h2>{item.name}</h2>
                   <h5>${item.price}</h5>
-                  <p
-                    className="btn-remove"
-                    onClick={(e) => onBuyorReturn(e, item)}
-                  >
+                  <p className="btn-remove">
                     {" "}
-                    <span className="btn2">BUY</span>
+                    <span className="btn2">DELETE</span>
                   </p>
                 </div>
               </div>
-            ))}
+            ))} */}
+            <CardList propList={ownerProduct(products)} sell={true} />
           </div>
 
           <div className="price-details">
@@ -57,4 +47,4 @@ const StudentProducts = () => {
   );
 };
 
-export default StudentProducts;
+export default MyProducts;

@@ -4,6 +4,7 @@ import Unathorised from "../pages/Unathorised/Unathorised";
 
 const ProtectedRoute = ({ children, role }) => {
   const cachedRole = localStorage.getItem("user_role");
+  console.log(role, cachedRole);
   if (cachedRole && cachedRole === role) {
     return children;
   } else if (cachedRole) {

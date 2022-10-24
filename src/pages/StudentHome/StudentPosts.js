@@ -8,26 +8,9 @@ const StudentPosts = () => {
       style={{ backgroundColor: "#232659" }}
     >
       <div className="wrapper">
-        <h1>My Posts</h1>
+        <h1></h1>
         <div className="cart">
           <div className="cartproducts">
-            <div className="product">
-              <div className="pdt_img">
-                <img src="/asset/images/web3.JPG" alt="ok" />
-              </div>
-              <div className="description">
-                <h3>Web 3.0</h3>
-                <p className="btn-remove">
-                  {" "}
-                  <span className="btn2">DELETE</span>
-                </p>
-              </div>
-            </div>
-            <div>
-              <Link to="create" className="view-more create-new">
-                Create new Post
-              </Link>
-            </div>
             <h1>Explore Posts</h1>
             <div className="product">
               <div className="pdt_img">

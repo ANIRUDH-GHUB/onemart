@@ -62,6 +62,10 @@ textarea {
   height: 100vh;
 }
 
+.description h5 {
+  font-size: 20px;
+}
+
 /* 
 Common
  */
@@ -659,6 +663,7 @@ Login
 }
 .cart {
   display: flex;
+  align-items: center;
   width: 100%;
 }
 .cartproducts {
@@ -752,6 +757,7 @@ Login
 }
 .price-details i {
   margin-right: 15px;
+  display: inline;
 }
 .price-details a:hover {
   background-color: #232659;
@@ -968,6 +974,12 @@ Login
   width: 124%;
   margin: 40px 0;
 }
+@media (min-width: 992px) {
+  .productshome,
+  .placeshome {
+    flex-direction: row;
+  }
+}
 /* Homepage_BO */
 .homepage_bo #home .hero-container {
   padding: 20px;
@@ -1040,6 +1052,7 @@ Login
 /* Product BO */
 .product_bo {
   margin-top: -15px;
+  padding-left: 100px;
 }
 .product_bo .view-more {
   padding: 10px;

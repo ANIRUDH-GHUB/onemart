@@ -5,39 +5,9 @@ const StudentClubs = () => {
   return (
     <section class="vh-500" style={{ backgroundColor: "#232659" }}>
       <div class="wrapper">
-        <h1>My Clubs</h1>
+        <h1></h1>
         <div class="cart">
           <div class="cartproducts">
-            <div class="product">
-              <div class="pdt_img">
-                <img src="/asset/images/unity.JPG" alt="ok" />
-              </div>
-              <div class="description">
-                <h3>Mav Involve</h3>
-                <p class="btn-remove">
-                  {" "}
-                  <span class="btn2">DELETE</span>
-                </p>
-              </div>
-            </div>
-            <div>
-              <Link to="create" class="view-more create-new">
-                Create new Club
-              </Link>
-            </div>
-            <h1>Other Clubs</h1>
-            <div class="product">
-              <div class="pdt_img">
-                <img src="/asset/images/freeSpeech.jpg" alt="ok" />
-              </div>
-              <div class="description">
-                <h3>Free Speech</h3>
-                <p class="btn-remove">
-                  {" "}
-                  <span class="btn2">Leave</span>
-                </p>
-              </div>
-            </div>
             <h1>Explore Clubs</h1>
             <div class="product">
               <div class="pdt_img">

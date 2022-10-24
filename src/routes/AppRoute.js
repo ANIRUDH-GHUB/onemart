@@ -15,6 +15,10 @@ import Homepage from "../pages/Homepage/Homepage";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import SchoolAdmin from "../pages/SchoolAdmin/SchoolAdmin";
+import MyClubs from "../pages/StudentHome/MyClubs";
+import MyPosts from "../pages/StudentHome/MyPosts";
+import MyProducts from "../pages/StudentHome/MyProducts";
+import Orders from "../pages/StudentHome/Orders";
 import StudenCreateClub from "../pages/StudentHome/StudenCreateClub";
 import StudentClubs from "../pages/StudentHome/StudentClubs";
 import StudentHome from "../pages/StudentHome/StudentHome";
@@ -299,12 +303,20 @@ const AppRoute = () => {
               </ProtectedRoute>
             }
           ></Route>
-          <Route path="products">
+          <Route
+            path="myposts"
+            element={
+              <ProtectedRoute role={userRole.student}>
+                <MyPosts />
+              </ProtectedRoute>
+            }
+          ></Route>
+          <Route path="myproducts">
             <Route
               path=""
               element={
                 <ProtectedRoute role={userRole.student}>
-                  <StudentProducts />
+                  <MyProducts />
                 </ProtectedRoute>
               }
             />
@@ -317,6 +329,31 @@ const AppRoute = () => {
               }
             />
           </Route>
+          <Route
+            path="myclubs"
+            element={
+              <ProtectedRoute role={userRole.student}>
+                <MyClubs />
+              </ProtectedRoute>
+            }
+          ></Route>
+          <Route
+            path="orders"
+            element={
+              <ProtectedRoute role={userRole.student}>
+                <Orders />
+              </ProtectedRoute>
+            }
+          ></Route>
+          <Route
+            path="products"
+            element={
+              <ProtectedRoute role={userRole.student}>
+                <StudentProducts />
+              </ProtectedRoute>
+            }
+          />
+
           <Route path="posts">
             <Route
               path=""

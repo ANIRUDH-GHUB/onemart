@@ -1,8 +1,11 @@
 import React from "react";
+import Sidebar from "../../component/Sidebar/Sidebar";
 
 const StudenCreateClub = () => {
   return (
     <section style={{ backgroundColor: "#232659" }}>
+      <Sidebar />
+
       <div className="login-container py-5 h-100">
         <div className="login-card" style={{ borderRadius: "1rem" }}>
           <div className="card-stack">
