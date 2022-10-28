@@ -2,22 +2,26 @@ import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { page, userRole } from "../../constants/constants";
 import { LogContext } from "../../context";
-import { getUserRole, validateCrentials } from "../../services/loginService";
+import { login } from "../../services/loginService";
+import { fetchUserRole } from "../../util/util";
 
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useContext(LogContext);
 
   const navigate = useNavigate();
 
-  const handleLogin = (e) => {
-    if (validateCrentials(username, password)) {
-      console.log("success");
+  const handleLogin = async (e) => {
+    setLoading(true);
+    const res = await login(username, password);
+    setLoading(false);
+    if (res?.success) {
       setIsLoggedIn(true);
-      const role = getUserRole(username, password);
-      localStorage.setItem("user_role", role);
+      navigate(page?.[fetchUserRole()]);
     }
+    window.dispatchEvent(new CustomEvent("alert", { detail: res?.message }));
   };
 
   useEffect(() => {
@@ -79,7 +83,7 @@ const Login = () => {
 
                   <div style={{ marginBottom: "10px" }}>
                     <button
-                      className="login-button"
+                      className={"login-button " + (loading ? "disabled" : "")}
                       type="button"
                       onClick={handleLogin}
                     >

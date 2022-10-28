@@ -1,13 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const CardList = ({ propList, sell = false }) => {
-  const [list, setList] = useState(propList);
-  console.log(list, propList);
+  const [list, setList] = useState();
   const onDelete = (index) => {
     const newList = list.filter((item, ind) => ind !== index);
     setList(newList);
   };
+
+  useEffect(() => {
+    setList(propList);
+  }, [propList]);
+
   return (
     <div className="cart">
       <div className="cartproducts">

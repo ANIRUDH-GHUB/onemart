@@ -8,6 +8,7 @@ const Sidebar = () => {
 
   const handleLogout = () => {
     localStorage.removeItem("user_role");
+    localStorage.removeItem("token");
     setIsLoggedIn(false);
   };
   return (

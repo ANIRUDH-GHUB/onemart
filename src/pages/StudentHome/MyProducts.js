@@ -1,14 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import productJson from "./../../model/student/products.json";
 import Sidebar from "../../component/Sidebar/Sidebar";
 import CardList from "../../component/CardList/CardList";
+import { getAllProductsById } from "../../services/productService";
 
 const MyProducts = () => {
-  const products = productJson;
+  const [products, setProduct] = useState([]);
 
-  const ownerProduct = (products) =>
-    products.filter((item) => item.owner === true);
+  useEffect(() => {
+    async function fetchData() {
+      const res = await getAllProductsById(localStorage.getItem("user_id"));
+      console.log(res);
+      setProduct(res);
+    }
+    fetchData();
+  }, []);
+
+  const ownerProduct = (products) => products.map((product) => product.acf);
   return (
     <section
       className="vh-500 product_bo"
@@ -20,26 +29,7 @@ const MyProducts = () => {
         <h1>My Products</h1>
         <div className="cart">
           <div className="cartproducts">
-            {/* {ownerProduct(products).map((item) => (
-              <div className="product">
-                <div className="pdt_img">
-                  <img src={item.image} alt="ok" />
-                </div>
-                <div className="description">
-                  <h2>{item.name}</h2>
-                  <h5>${item.price}</h5>
-                  <p className="btn-remove">
-                    {" "}
-                    <span className="btn2">DELETE</span>
-                  </p>
-                </div>
-              </div>
-            ))} */}
             <CardList propList={ownerProduct(products)} sell={true} />
-          </div>
-
-          <div className="price-details">
-            <img src="/asset/images/adbo1.jpg" alt="waterbottle" />
           </div>
         </div>
       </div>

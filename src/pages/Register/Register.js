@@ -1,15 +1,54 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { page } from "../../constants/constants";
+import { singup } from "../../services/loginService";
+import { alertMessage } from "../../util/util";
 
 const Register = () => {
+  const [values, setValues] = useState({
+    username: "",
+    name: "",
+    dob: "",
+    address: "",
+    contact: "",
+    email: "",
+    password: "",
+    showPassword: false,
+  });
+  const [isLoading, setLoading] = useState(false);
+
   const navigate = useNavigate();
+
+  const isValidEmail = (email) => {
+    return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email);
+  };
+
+  const handleChange = (event, prop) => {
+    if (prop === "email") {
+      event.target.style.background = isValidEmail(event.target.value)
+        ? "#ffffff"
+        : "#dc3545";
+    }
+    setValues({ ...values, [prop]: event.target.value });
+  };
+
+  const handleSignup = async (event) => {
+    setLoading(true);
+    const res = await singup(values);
+    setLoading(false);
+    if (res.success) {
+      navigate("/login");
+    }
+    alertMessage(res?.message);
+  };
+
   useEffect(() => {
     const role = localStorage.getItem("user_role");
     if (Object.keys(page).includes(role)) {
       navigate(page[role]);
     }
   });
+
   return (
     <section style={{ backgroundColor: "#232659" }}>
       <div className="login-container py-5 h-100">
@@ -38,35 +77,78 @@ const Register = () => {
                   </h5>
 
                   <div className="form-control">
-                    <input type="text" id="form2Example17" className="" />
+                    <input
+                      value={values.username}
+                      type="text"
+                      id="form2Example17"
+                      onChange={(e) => handleChange(e, "username")}
+                    />
+                    <label className="form-label">Username</label>
+                  </div>
+                  <div className="form-control">
+                    <input
+                      value={values.name}
+                      type="text"
+                      id="form2Example17"
+                      onChange={(e) => handleChange(e, "name")}
+                    />
                     <label className="form-label">Name</label>
                   </div>
                   <div className="form-control">
-                    <input type="date" id="form2Example17" className="" />
+                    <input
+                      value={values.dob}
+                      type="date"
+                      id="form2Example17"
+                      onChange={(e) => handleChange(e, "dob")}
+                    />
                     <label className="form-label">DOB</label>
                   </div>
                   <div className="form-control">
-                    <input type="text" id="form2Example17" className="" />
+                    <input
+                      value={values.address}
+                      type="text"
+                      id="form2Example17"
+                      onChange={(e) => handleChange(e, "address")}
+                    />
                     <label className="form-label">Address</label>
                   </div>
                   <div className="form-control">
-                    <input type="text" id="form2Example17" className="" />
+                    <input
+                      value={values.contact}
+                      type="text"
+                      id="form2Example17"
+                      onChange={(e) => handleChange(e, "contact")}
+                    />
                     <label className="form-label">Contact</label>
                   </div>
                   <div className="form-control">
-                    <input type="mail" id="form2Example17" className="" />
+                    <input
+                      value={values.email}
+                      type="mail"
+                      id="form2Example17"
+                      onChange={(e) => handleChange(e, "email")}
+                    />
                     <label className="form-label">Email Address</label>
                   </div>
 
                   <div className="form-control">
-                    <input type="password" id="form2Example27" className="" />
+                    <input
+                      value={values.password}
+                      type="password"
+                      id="form2Example27"
+                      onChange={(e) => handleChange(e, "password")}
+                    />
                     <label className="form-label" for="form2Example27">
                       Password
                     </label>
                   </div>
 
                   <div style={{ marginBottom: "10px" }}>
-                    <button className="login-button" type="button">
+                    <button
+                      className="login-button"
+                      type="button"
+                      onClick={handleSignup}
+                    >
                       Sign up
                     </button>
                   </div>

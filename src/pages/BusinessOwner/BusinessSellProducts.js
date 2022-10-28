@@ -1,6 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router";
+import LoadingButton from "../../common/LoadingButton";
+import { registerProduct } from "../../services/productService";
+import { alertMessage, getBase64 } from "../../util/util";
 
 const BusinessSellProducts = () => {
+  const [values, setValues] = useState({
+    name: "",
+    price: "",
+    description: "",
+    owner: "",
+    image: "",
+  });
+
+  const [image, setImage] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const navigate = useNavigate();
+
+  const handleSubmit = async () => {
+    setLoading(true);
+    const res = await registerProduct(values, image);
+    setLoading(false);
+    alertMessage(res?.message);
+    if (res?.success) {
+      navigate("../");
+    }
+  };
+
+  const handleChange = (event, prop) => {
+    let val = event.target.value;
+    if (prop === "price") val = parseFloat(event.target.value);
+    setValues({ ...values, [prop]: val });
+    if (prop === "image") {
+      getBase64(event.target.files[0]).then((res) => setImage(res));
+    }
+  };
+
   return (
     <section style={{ backgroundColor: "#232659" }}>
       <div className="login-container py-5 h-100">
@@ -26,7 +62,9 @@ const BusinessSellProducts = () => {
 
                   <div className="form-control">
                     <input
-                      type="email"
+                      value={values.name}
+                      onChange={(e) => handleChange(e, "name")}
+                      type="text"
                       id="form2Example17"
                       className=""
                       placeholder="Enter the product name here..."
@@ -36,6 +74,8 @@ const BusinessSellProducts = () => {
 
                   <div className="form-control">
                     <input
+                      value={values.price}
+                      onChange={(e) => handleChange(e, "price")}
                       type="text"
                       id="form2Example27"
                       className=""
@@ -47,6 +87,8 @@ const BusinessSellProducts = () => {
                   </div>
                   <div className="form-control">
                     <input
+                      value={values.description}
+                      onChange={(e) => handleChange(e, "description")}
                       type="text"
                       id="form2Example27"
                       className=""
@@ -59,6 +101,7 @@ const BusinessSellProducts = () => {
 
                   <div className="form-control">
                     <input
+                      onChange={(e) => handleChange(e, "image")}
                       type="file"
                       id="img"
                       name="img"
@@ -71,9 +114,9 @@ const BusinessSellProducts = () => {
                   </div>
 
                   <div style={{ marginBottom: "10px" }}>
-                    <button className="login-button" type="button">
+                    <LoadingButton loading={loading} onClick={handleSubmit}>
                       Submit
-                    </button>
+                    </LoadingButton>
                   </div>
                 </form>
               </div>

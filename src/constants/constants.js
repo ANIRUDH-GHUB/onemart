@@ -8,10 +8,10 @@ export const navitems = [
 ];
 
 export const userRole = {
-  superadmin: "superadmin",
-  schooladmin: "schooladmin",
-  student: "student",
-  businessowner: "businessowner",
+  administrator: "superadmin",
+  editor: "schooladmin",
+  subscriber: "student",
+  contributor: "businessowner",
 };
 
 export const page = {
