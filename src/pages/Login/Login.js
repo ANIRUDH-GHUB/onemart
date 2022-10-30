@@ -15,7 +15,7 @@ const Login = () => {
 
   const handleLogin = async (e) => {
     setLoading(true);
-    const res = await login(username, password);
+    const res = await login(username, password, false);
     setLoading(false);
     if (res?.success) {
       setIsLoggedIn(true);

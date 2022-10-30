@@ -4,7 +4,7 @@ import LoadingButton from "../../common/LoadingButton";
 import { registerProduct } from "../../services/productService";
 import { alertMessage, getBase64 } from "../../util/util";
 
-const BusinessSellProducts = () => {
+const CreateProduct = () => {
   const [values, setValues] = useState({
     name: "",
     price: "",
@@ -128,4 +128,4 @@ const BusinessSellProducts = () => {
   );
 };
 
-export default BusinessSellProducts;
+export default CreateProduct;

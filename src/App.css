@@ -70,6 +70,14 @@ textarea {
   opacity: 0.3;
 }
 
+.button-wrapper {
+  display: inline-flex;
+  flex-direction: column;
+  padding: 20px;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
 /* 
 Common
  */
@@ -695,7 +703,7 @@ Login
 }
 .description {
   padding: 1%;
-  width: 65%;
+  width: 60%;
   background-color: transparent;
   position: relative;
   color: black;
@@ -1104,7 +1112,7 @@ Login
 }
 
 .product_bo .product {
-  height: 130px;
+  height: 200px;
 }
 
 .product_bo1 .product {

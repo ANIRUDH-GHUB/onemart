@@ -1,37 +1,37 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 import Sidebar from "../../component/Sidebar/Sidebar";
+import CardList from "../../component/CardList/CardList";
+import Loading from "../../common/Loading";
+import { getAllClubsById } from "../../services/clubService";
 
-const MyClubs = () => {
+const MyProducts = () => {
+  const [clubs, setClubs] = useState([]);
+  const [dataLoading, setDataLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchData() {
+      const res = await getAllClubsById(localStorage.getItem("user_id"));
+      if (res) setDataLoading(false);
+      setClubs(res);
+    }
+    fetchData();
+  }, []);
+
+  const ownerProduct = (clubs) => clubs.map((product) => product.acf);
   return (
-    <section class="vh-500 product_bo" style={{ backgroundColor: "#232659" }}>
+    <section
+      className="vh-500 product_bo"
+      style={{ backgroundColor: "#232659" }}
+    >
       <Sidebar />
 
-      <div class="wrapper">
+      <div className="wrapper">
         <h1>My Clubs</h1>
-        <div class="cart">
-          <div class="cartproducts">
-            <div class="product">
-              <div class="pdt_img">
-                <img src="/asset/images/unity.JPG" alt="ok" />
-              </div>
-              <div class="description">
-                <h3>Mav Involve</h3>
-                <p class="btn-remove">
-                  {" "}
-                  <span class="btn2">DELETE</span>
-                </p>
-              </div>
-            </div>
-            <div>
-              <Link to="/student/clubs/create" class="view-more create-new">
-                Create new Club
-              </Link>
-            </div>
-          </div>
-
-          <div class="price-details">
-            <img src="/asset/images/adbo1.jpg" alt="waterbottle" />
+        <div className="cart">
+          <div className="cartproducts">
+            <Loading height={130} isLoading={dataLoading} count={3}>
+              <CardList propList={ownerProduct(clubs)} sell={true} />
+            </Loading>
           </div>
         </div>
       </div>
@@ -39,4 +39,4 @@ const MyClubs = () => {
   );
 };
 
-export default MyClubs;
+export default MyProducts;

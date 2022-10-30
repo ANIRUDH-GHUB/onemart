@@ -1,11 +1,12 @@
 import React from "react";
 
-const LoadingButton = ({ loading, onClick, children }) => {
+const LoadingButton = ({ loading, onClick, sx, children }) => {
   return (
     <button
       className={"login-button " + (loading ? "disabled" : "")}
       type="button"
       onClick={onClick}
+      style={sx}
     >
       {children}
     </button>
@@ -14,6 +15,7 @@ const LoadingButton = ({ loading, onClick, children }) => {
 LoadingButton.defaultProps = {
   loading: false,
   onClick: () => console.log("click"),
+  sx: {},
 };
 
 export default LoadingButton;

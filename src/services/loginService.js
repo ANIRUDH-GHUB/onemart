@@ -40,8 +40,7 @@ export const login = async (username, password, admin) => {
         success: false,
         message: "Error",
       };
-    })
-    .catch((error) => console.log("Error"));
+    });
   return data;
 };
 

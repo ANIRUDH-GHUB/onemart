@@ -10,7 +10,7 @@ export const navitems = [
 export const userRole = {
   administrator: "superadmin",
   editor: "schooladmin",
-  subscriber: "student",
+  author: "student",
   contributor: "businessowner",
 };
 

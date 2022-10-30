@@ -1,5 +1,5 @@
-// export const hostName = "https://kxr7981.uta.cloud";
-export const hostName = "http://localhost:8000";
+export const hostName = "https://nxg0191.uta.cloud";
+// export const hostName = "http://localhost:8000";
 
 //JWT
 export const loginSvc = "/wp-json/jwt-auth/v1/token";
@@ -14,6 +14,7 @@ export const eventSvc = "/wp-json/wp/v2/events";
 export const businessSvc = "/wp-json/wp/v2/business";
 export const flightSvc = "/wp-json/wp/v2/flights";
 export const productSvc = "/wp-json/wp/v2/product";
+export const clubsSvc = "/wp-json/wp/v2/club";
 
 //Custom
 export const usersSvc = "/wp-json/wl/v1/users";
@@ -21,3 +22,5 @@ export const postsSvc = "/wp-json/wl/v1/posts";
 
 export const contactSvc =
   "/wp-json/contact-form-7/v1/contact-forms/89/feedback";
+
+export const addPostSvc = "/wp-admin/post-new.php";
