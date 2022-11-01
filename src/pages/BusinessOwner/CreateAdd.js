@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
 import LoadingButton from "../../common/LoadingButton";
-import { registerClub } from "../../services/clubService";
+import { registerAdd } from "../../services/addService";
 import { alertMessage, getBase64 } from "../../util/util";
 
-const CreateClub = () => {
+const CreateAdd = () => {
   const [values, setValues] = useState({
     name: "",
     description: "",
@@ -19,7 +19,7 @@ const CreateClub = () => {
 
   const handleSubmit = async () => {
     setLoading(true);
-    const res = await registerClub(values, image);
+    const res = await registerAdd(values, image);
     setLoading(false);
     alertMessage(res?.message);
     if (res?.success) {
@@ -29,6 +29,7 @@ const CreateClub = () => {
 
   const handleChange = (event, prop) => {
     let val = event.target.value;
+    if (prop === "price") val = parseFloat(event.target.value);
     setValues({ ...values, [prop]: val });
     if (prop === "image") {
       getBase64(event.target.files[0]).then((res) => setImage(res));
@@ -51,7 +52,9 @@ const CreateClub = () => {
               <div className="card-body p-4 p-lg-5 text-black">
                 <form>
                   <div className="heading">
-                    <span className="h1 fw-bold mb-0">Create Club</span>
+                    <span className="h1 fw-bold mb-0">
+                      Create New Advertise
+                    </span>
                   </div>
 
                   <div className="form-control">
@@ -65,7 +68,6 @@ const CreateClub = () => {
                     />
                     <label className="form-label">Product Name</label>
                   </div>
-
                   <div className="form-control">
                     <input
                       value={values.description}
@@ -109,4 +111,4 @@ const CreateClub = () => {
   );
 };
 
-export default CreateClub;
+export default CreateAdd;

@@ -20,10 +20,6 @@ const StudenCreateClub = () => {
               <div className="card-body p-4 p-lg-5 text-black">
                 <form>
                   <div className="heading">
-                    <i
-                      className="fas fa-cubes fa-2x me-3"
-                      style={{ color: "#ff6219" }}
-                    ></i>
                     <span className="h1 fw-bold mb-0">Create New CLUB</span>
                   </div>
 

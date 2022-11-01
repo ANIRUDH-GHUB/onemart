@@ -1,206 +1,146 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Sidebar from "../../component/Sidebar/Sidebar";
+import { getAllClubs } from "../../services/clubService";
+import { getAllPosts } from "../../services/postService";
+import { getAllProducts } from "../../services/productService";
 
 const StudentHome = () => {
+  const [posts, setPosts] = useState([]);
+  const [products, setProducts] = useState([]);
+  const [clubs, setClubs] = useState([]);
+  const [dataLoading, setDataLoading] = useState(true);
+
+  const getPostData = (list) => list;
+
+  const getProductData = (list) => list.map((item) => item?.acf);
+
+  const getClubData = (list) => list.map((item) => item?.acf);
+
+  useEffect(() => {
+    async function fetchData() {
+      setProducts(getProductData(await getAllProducts()));
+      setPosts(getPostData(await getAllPosts()));
+      setClubs(getClubData(await getAllClubs()));
+    }
+    fetchData();
+  }, []);
+
   return (
-    <div className="homepage_bo">
+    <section style={{ marginLeft: "43px" }}>
       <Sidebar />
-      <section>
-        <div className="herosection" id="home">
-          <div className="hero-container">
-            <img
-              src="/asset/images/starbucks-open.jpg"
-              alt=""
-              className="hero-image"
-            />
+      <div class="herosection" id="home">
+        <div class="hero-container">
+          <img
+            src="/asset/images/starbucks-open.jpg"
+            alt=""
+            class="hero-image"
+          />
 
-            <div className="hero-content">
-              <h1 className="display-1">
-                One Shop <br /> for all your needs
-              </h1>
-            </div>
+          <div class="hero-content">
+            <h1 class="display-1">
+              One Shop <br /> for all your needs
+            </h1>
           </div>
         </div>
-
-        <div className="outer-container" id="outer-container">
-          <div>
-            <div className="left-side-container">
-              <div className="card-heading">Products</div>
-              <div className="productshome">
-                <div className="card-container">
-                  <div
-                    className="card-item"
-                    style={{
-                      backgroundImage: `url(${"/asset/images/machito.jpg"})`,
-                    }}
-                  >
-                    <div className="card-content">
-                      <h1>StarBucks</h1>
-                      <h4>Caramel Machiato</h4>
-                    </div>
-                  </div>
-                  <div
-                    className="card-item"
-                    style={{
-                      backgroundImage: `url(${"/asset/images/mandm.jpg"})`,
-                    }}
-                  >
-                    <div className="card-content">
-                      <h1>MarketPlace</h1>
-                      <h4>M&M</h4>
-                    </div>
-                  </div>
-                  <div
-                    className="card-item"
-                    style={{
-                      backgroundImage: `url(${"/asset/images/sandwich.jpg"})`,
-                    }}
-                  >
-                    <div className="card-content">
-                      <h1>Subways</h1>
-                      <h4>FootLong Sandwich</h4>
-                    </div>
-                  </div>
-                  <div
-                    className="card-item"
-                    style={{
-                      backgroundImage: `url(${"/asset/images/chikfila.jpg"})`,
-                    }}
-                  >
-                    <div className="card-content">
-                      <h1>Chik-Fil-A</h1>
-                      <h4>Chicken Sandwich</h4>
-                    </div>
-                  </div>
-                </div>
-                <div className="view-more">
-                  <Link to="products" target="_blank">
-                    View More
-                  </Link>
-                </div>
-              </div>
-
-              <div className="card-heading">Clubs</div>
-              <div className="placeshome">
-                <div className="card-container">
-                  <div
-                    className="card-item"
-                    style={{
-                      backgroundImage: `url(${"/asset/images/unity2.JPG"})`,
-                    }}
-                  >
-                    <div className="card-content">
-                      <h1>MAV INVOLVE</h1>
-                    </div>
-                  </div>
-                  <div
-                    className="card-item"
-                    style={{
-                      backgroundImage: `url(${"/asset/images/freeSpeech.jpg"})`,
-                    }}
-                  >
-                    <div className="card-content">
-                      <h1>FREE SPEECH</h1>
-                    </div>
-                  </div>
-                  <div
-                    className="card-item"
-                    style={{
-                      backgroundImage: `url(${"/asset/images/womensclub.jpg"})`,
-                    }}
-                  >
-                    <div className="card-content">
-                      <h1>WOMEN SOCIAL CLUB</h1>
-                    </div>
-                  </div>
-                  <div
-                    className="card-item"
-                    style={{
-                      backgroundImage: `url(${"/asset/images/helpingHand.jpg"})`,
-                    }}
-                  >
-                    <div className="card-content">
-                      <h1>HELPING HAND</h1>
-                    </div>
-                  </div>
-                </div>
-                <div className="view-more">
-                  <Link to="clubs" target="_blank">
-                    View More
-                  </Link>
-                </div>
-              </div>
-
-              <div className="card-heading">Posts</div>
-              <div className="placeshome">
-                <div className="card-container">
-                  <div
-                    className="card-item"
-                    style={{
-                      backgroundImage: `url(${"/asset/images/lifeSciences.jpg"})`,
-                    }}
-                  >
-                    <div className="card-content">
-                      <h1>John Doe</h1>
-                      <h4>Life Sciences</h4>
-                    </div>
-                  </div>
-                  <div
-                    className="card-item"
-                    style={{
-                      backgroundImage: `url(${"/asset/images/dataBreach.jpg"})`,
-                    }}
-                  >
-                    <div className="card-content">
-                      <h1>Marx Karl</h1>
-                      <h4>Data Breach</h4>
-                    </div>
-                  </div>
-                  <div
-                    className="card-item"
-                    style={{
-                      backgroundImage: `url(${"/asset/images/web3.JPG"})`,
-                    }}
-                  >
-                    <div className="card-content">
-                      <h1>Krishna Mohan</h1>
-                      <h4>Web 3.0</h4>
-                    </div>
-                  </div>
-                  <div
-                    className="card-item"
-                    style={{
-                      backgroundImage: `url(${"/asset/images/halloween.jpg"})`,
-                    }}
-                  >
-                    <div className="card-content">
-                      <h1>Riya Carles</h1>
-                      <h4>Halloween</h4>
-                    </div>
-                  </div>
-                </div>
-                <div className="view-more">
-                  <Link to="posts" target="_blank">
-                    View More
-                  </Link>
-                </div>
-              </div>
-            </div>
-
-            <div className="right-side-container">
-              <div className="advertisement">
-                <img src="/asset/images/adbo.jpg" alt="starbucks" />
-                <p>Grab your Deals NOW!!!</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <div className="fixed-bottom">
-        <div className="chat">CHAT!!!</div>
       </div>
-    </div>
+      <div class="outer-container" id="outer-container">
+        <div class="left-side-container">
+          <div class="card-heading">Products</div>
+          <div class="productshome">
+            <div class="card-container">
+              {products.slice(0, 3).map((item) => (
+                <div
+                  class="card-item"
+                  style={{
+                    backgroundImage: `url(${
+                      item?.image
+                        ? item?.image
+                        : "/asset/images/default-post.png"
+                    })`,
+                  }}
+                >
+                  <div class="card-content">
+                    <h1>{item?.name}</h1>
+                    <h4>{item?.description}</h4>
+                  </div>
+                </div>
+              ))}
+              <div class="view-more">
+                <Link to="products">View More</Link>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-heading">Posts</div>
+          <div class="placeshome">
+            <div class="card-container">
+              {posts.slice(0, 3).map((item) => (
+                <div
+                  class="card-item"
+                  style={{
+                    backgroundImage: `url(${
+                      item?.featured_image?.large
+                        ? item?.featured_image?.large
+                        : "/asset/images/default-post.png"
+                    })`,
+                  }}
+                >
+                  <div class="card-content">
+                    <h1>{item?.title}</h1>
+                    <h4
+                      className="post-description"
+                      dangerouslySetInnerHTML={{ __html: item?.content }}
+                    ></h4>
+                  </div>
+                </div>
+              ))}
+              <div class="view-more">
+                <Link to="posts">View More</Link>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-heading">Clubs</div>
+          <div class="placeshome">
+            <div class="card-container">
+              {clubs.slice(0, 3).map((item) => (
+                <div
+                  class="card-item"
+                  style={{
+                    backgroundImage: `url(${
+                      item?.image
+                        ? item?.image
+                        : "/asset/images/default-post.png"
+                    })`,
+                  }}
+                >
+                  <div class="card-content">
+                    <h1>{item?.name}</h1>
+                    <h4>{item?.description}</h4>
+                  </div>
+                </div>
+              ))}
+              <div class="view-more">
+                <Link to="clubs">View More</Link>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="right-side-container">
+          <div class="advertisement">
+            <img src="/asset/images/adbo1.jpg" alt="adbo" />
+            <p> Grab your Deak NOW!! </p>
+          </div>
+          <div class="view-more advertise-btn">
+            <a href="bocreateAdvertisement.html" target="_blank">
+              Advertise
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 };
 

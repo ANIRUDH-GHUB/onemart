@@ -1,37 +1,73 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import orderJson from "./../../model/student/order-history.json";
+import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import Loading from "../../common/Loading";
 import Sidebar from "../../component/Sidebar/Sidebar";
+import { addToCart } from "../../state/slices/cartSlice";
+import "react-loading-skeleton/dist/skeleton.css";
+import { getAllOrdersById } from "../../services/orderService";
+import moment from "moment";
+import { getAllProducts } from "../../services/productService";
 
-const Orders = () => {
-  const orders = orderJson;
+const Products = () => {
+  const [products, setProducts] = useState([]);
+  const [orders, setOrders] = useState([]);
+  const [dataLoading, setDataLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchData() {
+      let res = await getAllOrdersById(localStorage.getItem("user_id"));
+      setOrders(res);
+      res = await getAllProducts();
+      setProducts(res);
+      setDataLoading(false);
+    }
+    fetchData();
+  }, []);
+
+  const ownerProduct = (products) => products.map((product) => product.acf);
+
+  const getProductByOrder = () => {
+    let finalProducts = [];
+    orders?.forEach((order) => {
+      products?.forEach((product) => {
+        if (`${product.id}` === order.acf.productid) {
+          finalProducts.push({ ...product, date: order?.date });
+        }
+      });
+    });
+    return finalProducts;
+  };
+
   return (
     <section
       className="vh-500 product_bo"
       style={{ backgroundColor: "#232659" }}
     >
       <Sidebar />
-
       <div className="wrapper">
-        <h1>My Products</h1>
         <div className="cart">
           <div className="cartproducts">
-            {orders.map((item) => (
-              <div className="product">
-                <div className="pdt_img">
-                  <img src={item.image} alt="ok" />
+            <h1>Orders</h1>
+            <Loading height={130} isLoading={dataLoading} count={3}>
+              {ownerProduct(getProductByOrder()).map((item, index) => (
+                <div className="product">
+                  <div className="pdt_img">
+                    <img src={item.image} alt="ok" />
+                  </div>
+                  <div className="description">
+                    <h2>{item.name}</h2>
+                    <h5>{item.description}</h5>
+                    <h5>${item.price}</h5>
+                    <p className="btn-remove">
+                      {" "}
+                      <span className="btn2">
+                        {moment(item?.date).format("DD MMM YYYY hh:mm a")}
+                      </span>
+                    </p>
+                  </div>
                 </div>
-                <div className="description">
-                  <h2>{item.name}</h2>
-                  <h5>${item.price}</h5>
-                  <p className="btn-remove">{item.date}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="price-details">
-            <img src="/asset/images/adbo1.jpg" alt="waterbottle" />
+              ))}
+            </Loading>
           </div>
         </div>
       </div>
@@ -39,4 +75,4 @@ const Orders = () => {
   );
 };
 
-export default Orders;
+export default Products;

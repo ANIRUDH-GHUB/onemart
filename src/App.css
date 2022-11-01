@@ -1263,3 +1263,10 @@ Login
 .empty-cart p {
   font-size: 36px;
 }
+
+.post-description * {
+  display: none;
+}
+.post-description *:first-child {
+  display: block;
+}

@@ -9,8 +9,11 @@ import {
 } from "./util";
 import { fetchUserRole } from "../../util/util";
 import { page } from "../../constants/constants";
+import { useSelector } from "react-redux";
+import { orderProduct } from "../../services/orderService";
 
 const Payment = () => {
+  const { cart } = useSelector((state) => state);
   const [name, setName] = useState("");
   const [cvc, setCvc] = useState("");
   const [expiry, setExpiry] = useState("");
@@ -21,6 +24,18 @@ const Payment = () => {
 
   const handleInputFocus = ({ target }) => {
     setFocused(target.name);
+  };
+
+  const onPay = () => {
+    console.log(typeof cart);
+    cart?.cart?.forEach(async (item) => {
+      const res = await orderProduct({
+        userid: localStorage.getItem("user_id"),
+        productid: `${item.id}`,
+        date: new Date().getTime(),
+      });
+    });
+    setPaid(true);
   };
 
   useEffect(() => {
@@ -55,10 +70,6 @@ const Payment = () => {
                   <div className="card-body p-4 p-lg-5 text-black">
                     <form>
                       <div className="heading">
-                        <i
-                          className="fas fa-cubes fa-2x me-3"
-                          style={{ color: "#ff6219" }}
-                        ></i>
                         <span className="h1 fw-bold mb-0">Payment</span>
                       </div>
 
@@ -122,7 +133,7 @@ const Payment = () => {
                         <button
                           className="login-button"
                           type="button"
-                          onClick={() => setPaid(true)}
+                          onClick={() => onPay()}
                         >
                           Pay
                         </button>

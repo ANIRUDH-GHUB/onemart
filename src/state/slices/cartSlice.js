@@ -16,11 +16,11 @@ export const cartSlice = createSlice({
     getCartDetais: (state) => state.cart,
     addToCart: (state, action) => {
       const item = {
-        name: action?.payload?.name || "",
-        price: action?.payload?.price || 0,
-        qt: action?.payload?.qt || 1,
-        image: action?.payload?.image || "",
-        id: Math.floor(Math.random() * 10000000),
+        name: action?.payload?.acf?.name || "",
+        price: action?.payload?.acf?.price || 0,
+        qt: action?.payload?.acf?.qt || 1,
+        image: action?.payload?.acf?.image || "",
+        id: action?.payload?.id,
       };
       state.cart = [...state.cart, item];
     },

@@ -4,6 +4,7 @@ import "react-loading-skeleton/dist/skeleton.css";
 import { getAllClubs } from "../../services/clubService";
 import LoadingButton from "../../common/LoadingButton";
 import { Link } from "react-router-dom";
+import { joinClub } from "../../services/joinedService";
 
 const Clubs = () => {
   const [clubs, setClubs] = useState([]);
@@ -31,6 +32,13 @@ const Clubs = () => {
     item?.author === localStorage.getItem("user_id");
 
   const canJoin = (item) => localStorage.getItem("user_role") === "student";
+
+  const onJoined = async (index) => {
+    const res = await joinClub({
+      userid: localStorage.getItem("user_id"),
+      clubid: `${clubs[index]?.id}`,
+    });
+  };
 
   const allProducts = (clubs) => clubs.map((club) => club.acf);
 
@@ -62,7 +70,11 @@ const Clubs = () => {
                   ></h4>
                 </div>
                 <div className="button-wrapper">
-                  {canJoin() && <LoadingButton>Join</LoadingButton>}
+                  {canJoin() && (
+                    <LoadingButton onClick={() => onJoined(index)}>
+                      Join
+                    </LoadingButton>
+                  )}
 
                   {canDelete(item) && (
                     <LoadingButton

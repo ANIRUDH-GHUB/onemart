@@ -1,17 +1,33 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { getAllAddsById } from "../../services/addService";
 import { getAllPosts } from "../../services/postService";
-import { getAllProducts } from "../../services/productService";
+import { getAllProductsById } from "../../services/productService";
 
 const BusinessOwner = () => {
   const [posts, setPosts] = useState([]);
   const [products, setProducts] = useState([]);
+  const [adds, setAdds] = useState([]);
   const [dataLoading, setDataLoading] = useState(true);
+
+  const getPostData = (list) =>
+    list.filter((post) => post.author === localStorage.getItem("user_id"));
+
+  const getProductData = (list) => list.map((item) => item?.acf);
+
+  const getAddData = (list) => list.map((item) => item?.acf);
 
   useEffect(() => {
     async function fetchData() {
-      setProducts(await getAllProducts());
-      setPosts(await getAllPosts());
+      setProducts(
+        getProductData(
+          await getAllProductsById(localStorage.getItem("user_id"))
+        )
+      );
+      setPosts(getPostData(await getAllPosts()));
+      setAdds(
+        getAddData(await getAllAddsById(localStorage.getItem("user_id")))
+      );
     }
     fetchData();
   }, []);
@@ -39,7 +55,23 @@ const BusinessOwner = () => {
           <div class="card-heading">Products</div>
           <div class="productshome">
             <div class="card-container">
-              {console.log(products)}
+              {products.slice(0, 3).map((item) => (
+                <div
+                  class="card-item"
+                  style={{
+                    backgroundImage: `url(${
+                      item?.image
+                        ? item?.image
+                        : "/asset/images/default-post.png"
+                    })`,
+                  }}
+                >
+                  <div class="card-content">
+                    <h1>{item?.name}</h1>
+                    <h4>{item?.description}</h4>
+                  </div>
+                </div>
+              ))}
               <div class="view-more">
                 <Link to="products">View More</Link>
               </div>
@@ -49,48 +81,26 @@ const BusinessOwner = () => {
           <div class="card-heading">Posts</div>
           <div class="placeshome">
             <div class="card-container">
-              <div
-                class="card-item"
-                style={{
-                  backgroundImage: `url(${"/asset/images/lifeSciences.jpg"})`,
-                }}
-              >
-                <div class="card-content">
-                  <h1>John Doe</h1>
-                  <h4>Life Sciences</h4>
+              {posts.slice(0, 3).map((item) => (
+                <div
+                  class="card-item"
+                  style={{
+                    backgroundImage: `url(${
+                      item?.featured_image?.large
+                        ? item?.featured_image?.large
+                        : "/asset/images/default-post.png"
+                    })`,
+                  }}
+                >
+                  <div class="card-content">
+                    <h1>{item?.title}</h1>
+                    <h4
+                      className="post-description"
+                      dangerouslySetInnerHTML={{ __html: item?.content }}
+                    ></h4>
+                  </div>
                 </div>
-              </div>
-              <div
-                class="card-item"
-                style={{
-                  backgroundImage: `url(${"/asset/images/dataBreach.jpg"})`,
-                }}
-              >
-                <div class="card-content">
-                  <h1>Marx Karl</h1>
-                  <h4>Data Breach</h4>
-                </div>
-              </div>
-              <div
-                class="card-item"
-                style={{ backgroundImage: `url(${"/asset/images/web3.JPG"})` }}
-              >
-                <div class="card-content">
-                  <h1>Krishna Mohan</h1>
-                  <h4>Web 3.0</h4>
-                </div>
-              </div>
-              <div
-                class="card-item"
-                style={{
-                  backgroundImage: `url(${"/asset/images/halloween.jpg"})`,
-                }}
-              >
-                <div class="card-content">
-                  <h1>Riya Carles</h1>
-                  <h4>Halloween</h4>
-                </div>
-              </div>
+              ))}
               <div class="view-more">
                 <Link to="posts">View More</Link>
               </div>
@@ -100,50 +110,23 @@ const BusinessOwner = () => {
           <div class="card-heading">Advertisements</div>
           <div class="placeshome">
             <div class="card-container">
-              <div
-                class="card-item"
-                style={{
-                  backgroundImage: `url(${"/asset/images/starbucks.jpg"})`,
-                }}
-              >
-                <div class="card-content">
-                  <h1>StarBucks</h1>
-                  <h4>Fiesta Frappuccino</h4>
+              {adds.slice(0, 3).map((item) => (
+                <div
+                  class="card-item"
+                  style={{
+                    backgroundImage: `url(${
+                      item?.image
+                        ? item?.image
+                        : "/asset/images/default-post.png"
+                    })`,
+                  }}
+                >
+                  <div class="card-content">
+                    <h1>{item?.name}</h1>
+                    <h4>{item?.description}</h4>
+                  </div>
                 </div>
-              </div>
-              <div
-                class="card-item"
-                style={{
-                  backgroundImage: `url(${"/asset/images/starbucks1.jpg"})`,
-                }}
-              >
-                <div class="card-content">
-                  <h1>StarBucks</h1>
-                  <h4>Japan's Melon Frappuccino</h4>
-                </div>
-              </div>
-              <div
-                class="card-item"
-                style={{
-                  backgroundImage: `url(${"/asset/images/starbucks2.jpg"})`,
-                }}
-              >
-                <div class="card-content">
-                  <h1>StarBucks</h1>
-                  <h4>Machito Coffee</h4>
-                </div>
-              </div>
-              <div
-                class="card-item"
-                style={{
-                  backgroundImage: `url(${"/asset/images/starbucks3.jpg"})`,
-                }}
-              >
-                <div class="card-content">
-                  <h1>StarBucks</h1>
-                  <h4>Unicorn Frappuccino</h4>
-                </div>
-              </div>
+              ))}
               <div class="view-more">
                 <Link to="adds">View More</Link>
               </div>

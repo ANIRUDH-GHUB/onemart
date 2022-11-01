@@ -23,11 +23,11 @@ const Products = () => {
 
   const allProducts = (products) => products.map((product) => product.acf);
 
-  const onBuyorReturn = (e, item) => {
+  const onBuyorReturn = (e, index) => {
     e.target.style.backgroundColor = "#aaaaaa";
     e.target.style.pointerEvents = "none";
 
-    dispatch(addToCart(item));
+    dispatch(addToCart(products[index]));
   };
 
   return (
@@ -41,17 +41,18 @@ const Products = () => {
           <div className="cartproducts">
             <h1>Explore Products</h1>
             <Loading height={130} isLoading={dataLoading} count={3}>
-              {allProducts(products).map((item) => (
+              {allProducts(products).map((item, index) => (
                 <div className="product">
                   <div className="pdt_img">
                     <img src={item.image} alt="ok" />
                   </div>
                   <div className="description">
                     <h2>{item.name}</h2>
+                    <h5>${item.description}</h5>
                     <h5>${item.price}</h5>
                     <p
                       className="btn-remove"
-                      onClick={(e) => onBuyorReturn(e, item)}
+                      onClick={(e) => onBuyorReturn(e, index)}
                     >
                       {" "}
                       <span className="btn2">BUY</span>

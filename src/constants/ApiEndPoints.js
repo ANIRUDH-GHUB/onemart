@@ -14,7 +14,10 @@ export const eventSvc = "/wp-json/wp/v2/events";
 export const businessSvc = "/wp-json/wp/v2/business";
 export const flightSvc = "/wp-json/wp/v2/flights";
 export const productSvc = "/wp-json/wp/v2/product";
+export const addSvc = "/wp-json/wp/v2/advertise";
 export const clubsSvc = "/wp-json/wp/v2/club";
+export const ordersSvc = "/wp-json/wp/v2/orders";
+export const joinedSvc = "/wp-json/wp/v2/joined";
 
 //Custom
 export const usersSvc = "/wp-json/wl/v1/users";

@@ -6,7 +6,6 @@ import CreatePost from "../component/CreatePost/CreatePost";
 import Navbar from "../component/Navbar/Navbar";
 import Payment from "../component/Payment/Payment";
 import { userRole } from "../constants/constants";
-import BusinessCreateAdd from "../pages/BusinessOwner/BusinessCreateAdd";
 import BusinessManageAdds from "../pages/BusinessOwner/BusinessManageAdds";
 import BusinessOwner from "../pages/BusinessOwner/BusinessOwner";
 import Cart from "../pages/Cart/Cart";
@@ -35,6 +34,7 @@ import CreateProduct from "../pages/BusinessOwner/CreateProduct";
 import CreateClub from "../pages/SuperAdmin/CreateClub";
 import Clubs from "../pages/StudentHome/Clubs";
 import SuperManage from "../pages/SuperAdmin/SuperManage";
+import CreateAdd from "../pages/BusinessOwner/CreateAdd";
 
 const AppRoute = () => {
   return (
@@ -278,7 +278,7 @@ const AppRoute = () => {
               path="create"
               element={
                 <ProtectedRoute role={userRole.contributor}>
-                  <BusinessCreateAdd />
+                  <CreateAdd />
                 </ProtectedRoute>
               }
             />
