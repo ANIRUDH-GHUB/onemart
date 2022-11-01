@@ -56,7 +56,7 @@ const Register = () => {
           <div className="card-stack">
             <div className="card-item">
               <object
-                data="./asset/icons/register.svg"
+                data="/asset/icons/register.svg"
                 type="image/svg+xml"
                 style={{ width: "100%" }}
               ></object>

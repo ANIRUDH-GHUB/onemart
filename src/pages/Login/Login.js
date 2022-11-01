@@ -26,7 +26,7 @@ const Login = () => {
 
   useEffect(() => {
     const role = localStorage.getItem("user_role");
-    if (Object.keys(userRole).includes(role)) {
+    if (Object.keys(page).includes(role)) {
       console.log("User role", page[role], isLoggedIn);
       navigate(page[role]);
     }
@@ -39,7 +39,7 @@ const Login = () => {
           <div className="card-stack">
             <div className="card-item">
               <object
-                data="./asset/icons/login.svg"
+                data="/asset/icons/login.svg"
                 type="image/svg+xml"
                 style={{ width: "100%" }}
               ></object>

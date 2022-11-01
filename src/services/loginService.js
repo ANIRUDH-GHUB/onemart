@@ -50,9 +50,11 @@ export const singup = async (body) => {
     first_name: body.name,
     email: body.email,
     password: body.password,
+    roles: ["author"],
     acf: {
       dob: body.dob,
       address: body.address,
+      avatar: "https://www.bootdey.com/img/Content/avatar/avatar1.png",
     },
   };
   const token = localStorage.getItem("admin_token");

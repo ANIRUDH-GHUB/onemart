@@ -20,27 +20,25 @@ import MyClubs from "../pages/StudentHome/MyClubs";
 import MyPosts from "../pages/StudentHome/MyPosts";
 import MyProducts from "../pages/StudentHome/MyProducts";
 import Orders from "../pages/StudentHome/Orders";
-import StudentClubs from "../pages/StudentHome/StudentClubs";
 import StudentHome from "../pages/StudentHome/StudentHome";
 import Products from "../pages/StudentHome/Products";
 import SuperAdmin from "../pages/SuperAdmin/SuperAdmin";
 import SuperCreateBusiness from "../pages/SuperAdmin/SuperCreateBusiness";
 import SuperCreateSchools from "../pages/SuperAdmin/SuperCreateSchools";
 import SuperCreateStudent from "../pages/SuperAdmin/SuperCreateStudent";
-import SuperManageBusiness from "../pages/SuperAdmin/SuperManageBusiness";
 import SuperManageClubs from "../pages/SuperAdmin/SupermanageClubs";
 import Posts from "../pages/SuperAdmin/Posts";
-import SuperManageSchools from "../pages/SuperAdmin/SuperManageSchools";
-import SuperManageStudents from "../pages/SuperAdmin/SuperManageStudents";
+
 import Unathorised from "../pages/Unathorised/Unathorised";
 import { fetchUserRole } from "../util/util";
 import CreateProduct from "../pages/BusinessOwner/CreateProduct";
 import CreateClub from "../pages/SuperAdmin/CreateClub";
 import Clubs from "../pages/StudentHome/Clubs";
+import SuperManage from "../pages/SuperAdmin/SuperManage";
 
 const AppRoute = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="app">
       <Navbar />
       <Alert />
       <Routes>
@@ -62,7 +60,7 @@ const AppRoute = () => {
               path=""
               element={
                 <ProtectedRoute role={userRole.administrator}>
-                  <SuperManageBusiness />
+                  <SuperManage role="contributor" />
                 </ProtectedRoute>
               }
             />
@@ -98,7 +96,7 @@ const AppRoute = () => {
               path=""
               element={
                 <ProtectedRoute role={userRole.administrator}>
-                  <SuperManageClubs />
+                  <Clubs />
                 </ProtectedRoute>
               }
             />
@@ -116,7 +114,7 @@ const AppRoute = () => {
               path=""
               element={
                 <ProtectedRoute role={userRole.administrator}>
-                  <SuperManageSchools />
+                  <SuperManage role="editor" />
                 </ProtectedRoute>
               }
             />
@@ -134,7 +132,7 @@ const AppRoute = () => {
               path=""
               element={
                 <ProtectedRoute role={userRole.administrator}>
-                  <SuperManageStudents />
+                  <SuperManage role="author" />
                 </ProtectedRoute>
               }
             />
@@ -162,7 +160,7 @@ const AppRoute = () => {
               path=""
               element={
                 <ProtectedRoute role={userRole.editor}>
-                  <SuperManageBusiness />
+                  <SuperManage role="contributor" />
                 </ProtectedRoute>
               }
             />
@@ -198,7 +196,7 @@ const AppRoute = () => {
               path=""
               element={
                 <ProtectedRoute role={userRole.editor}>
-                  <SuperManageClubs />
+                  <Clubs />
                 </ProtectedRoute>
               }
             />
@@ -216,7 +214,7 @@ const AppRoute = () => {
               path=""
               element={
                 <ProtectedRoute role={userRole.editor}>
-                  <SuperManageStudents />
+                  <SuperManage role="author" />
                 </ProtectedRoute>
               }
             />

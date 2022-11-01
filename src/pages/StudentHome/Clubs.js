@@ -1,16 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import Loading from "../../common/Loading";
-import Sidebar from "../../component/Sidebar/Sidebar";
-import { addToCart } from "../../state/slices/cartSlice";
 import "react-loading-skeleton/dist/skeleton.css";
 import { getAllClubs } from "../../services/clubService";
+import LoadingButton from "../../common/LoadingButton";
+import { Link } from "react-router-dom";
 
-const Products = () => {
+const Clubs = () => {
   const [clubs, setClubs] = useState([]);
   const [dataLoading, setDataLoading] = useState(true);
 
   const dispatch = useDispatch();
+
+  const onDelete = (index) => {
+    const newList = clubs.filter((item, ind) => ind !== index);
+    setClubs(newList);
+  };
 
   useEffect(() => {
     async function fetchData() {
@@ -21,45 +25,70 @@ const Products = () => {
     fetchData();
   }, []);
 
+  const canDelete = (item) =>
+    localStorage.getItem("user_role") === "superadmin" ||
+    localStorage.getItem("user_role") === "schooladmin" ||
+    item?.author === localStorage.getItem("user_id");
+
+  const canJoin = (item) => localStorage.getItem("user_role") === "student";
+
   const allProducts = (clubs) => clubs.map((club) => club.acf);
-
-  const onBuyorReturn = (e, item) => {
-    e.target.style.backgroundColor = "#aaaaaa";
-    e.target.style.pointerEvents = "none";
-
-    dispatch(addToCart(item));
-  };
 
   return (
     <section
-      className="vh-500 product_bo"
+      className="product_bo managePosts"
       style={{ backgroundColor: "#232659" }}
     >
-      <Sidebar />
       <div className="wrapper">
+        <h1>Clubs</h1>
         <div className="cart">
           <div className="cartproducts">
-            <h1>Explore Clubs</h1>
-            <Loading height={130} isLoading={dataLoading} count={3}>
-              {allProducts(clubs).map((item) => (
-                <div className="product">
-                  <div className="pdt_img">
-                    <img src={item?.image} alt="ok" />
-                  </div>
-                  <div className="description">
-                    <h2>{item?.name}</h2>
-                    <h5>{item?.description}</h5>
-                    <p
-                      className="btn-remove"
-                      onClick={(e) => onBuyorReturn(e, item)}
-                    >
-                      {" "}
-                      <span className="btn2">Join</span>
-                    </p>
-                  </div>
+            {allProducts(clubs)?.map((item, index) => (
+              <div className="product" key={item.id}>
+                <div className="pdt_img">
+                  <img
+                    src={
+                      item?.image
+                        ? item?.image
+                        : "/asset/images/default-post.png"
+                    }
+                    alt="ok"
+                  />
                 </div>
-              ))}
-            </Loading>
+                <div className="description">
+                  <h3>{item.name}</h3>
+                  <h4
+                    dangerouslySetInnerHTML={{ __html: item?.description }}
+                  ></h4>
+                </div>
+                <div className="button-wrapper">
+                  {canJoin() && <LoadingButton>Join</LoadingButton>}
+
+                  {canDelete(item) && (
+                    <LoadingButton
+                      isLoading={dataLoading}
+                      onClick={() => onDelete(index)}
+                      sx={{ backgroundColor: "#dc3545" }}
+                    >
+                      Delete
+                    </LoadingButton>
+                  )}
+                </div>
+              </div>
+            ))}
+            <div>
+              <Link
+                to="create"
+                className="view-more create-new"
+                target="_blank"
+              >
+                Add new
+              </Link>
+            </div>
+          </div>
+
+          <div className="price-details">
+            <img src="/asset/images/waterbottle.jpg" alt="waterbottle" />
           </div>
         </div>
       </div>
@@ -67,4 +96,4 @@ const Products = () => {
   );
 };
 
-export default Products;
+export default Clubs;

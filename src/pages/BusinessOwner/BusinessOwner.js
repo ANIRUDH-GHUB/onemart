@@ -1,7 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { getAllPosts } from "../../services/postService";
+import { getAllProducts } from "../../services/productService";
 
 const BusinessOwner = () => {
+  const [posts, setPosts] = useState([]);
+  const [products, setProducts] = useState([]);
+  const [dataLoading, setDataLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchData() {
+      setProducts(await getAllProducts());
+      setPosts(await getAllPosts());
+    }
+    fetchData();
+  }, []);
+
   return (
     <section>
       <div class="herosection" id="home">
@@ -25,51 +39,7 @@ const BusinessOwner = () => {
           <div class="card-heading">Products</div>
           <div class="productshome">
             <div class="card-container">
-              <div
-                class="card-item"
-                style={{
-                  backgroundImage: `url(${"/asset/images/starbucks3.jpg"})`,
-                }}
-              >
-                <div class="card-content">
-                  <h1>StarBucks</h1>
-                  <h4>Cappuccino</h4>
-                </div>
-              </div>
-              <div
-                class="card-item"
-                style={{
-                  backgroundImage: `url(${"/asset/images/starbucks2.jpg"})`,
-                }}
-              >
-                <div class="card-content">
-                  <h1>StarBucks</h1>
-                  <h4>Machito Coffee</h4>
-                </div>
-              </div>
-              <div
-                class="card-item"
-                style={{
-                  backgroundImage: `url(${"/asset/images/starbucks1.jpg"})`,
-                }}
-              >
-                <div class="card-content">
-                  <h1>StarBucks</h1>
-                  <h4>Frappuccino</h4>
-                </div>
-              </div>
-
-              <div
-                class="card-item"
-                style={{
-                  backgroundImage: `url(${"/asset/images/starbucks4.jpg"})`,
-                }}
-              >
-                <div class="card-content">
-                  <h1>StarBucks</h1>
-                  <h4>Caramel Coffee</h4>
-                </div>
-              </div>
+              {console.log(products)}
               <div class="view-more">
                 <Link to="products">View More</Link>
               </div>
