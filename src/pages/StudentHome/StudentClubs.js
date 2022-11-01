@@ -13,7 +13,7 @@ const StudentClubs = () => {
             <h1>Explore Clubs</h1>
             <div class="product">
               <div class="pdt_img">
-                <img src="/asset/images/dataBreach.jpg" alt="ok" />
+                <img src="/app/asset/images/dataBreach.jpg" alt="ok" />
               </div>
               <div class="description">
                 <h3>Hackathon</h3>
@@ -25,7 +25,7 @@ const StudentClubs = () => {
             </div>
             <div class="product">
               <div class="pdt_img">
-                <img src="/asset/images/databaseTextbook.jpg" alt="ok" />
+                <img src="/app/asset/images/databaseTextbook.jpg" alt="ok" />
               </div>
               <div class="description">
                 <h3>Study Mate</h3>
@@ -38,7 +38,7 @@ const StudentClubs = () => {
           </div>
 
           <div class="price-details">
-            <img src="/asset/images/adbo1.jpg" alt="waterbottle" />
+            <img src="/app/asset/images/adbo1.jpg" alt="waterbottle" />
           </div>
         </div>
       </div>

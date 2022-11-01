@@ -38,7 +38,7 @@ const Posts = () => {
                     src={
                       item?.featured_image?.large
                         ? item?.featured_image?.large
-                        : "/asset/images/default-post.png"
+                        : "/app/asset/images/default-post.png"
                     }
                     alt="ok"
                   />
@@ -74,7 +74,7 @@ const Posts = () => {
           </div>
 
           <div className="price-details">
-            <img src="/asset/images/waterbottle.jpg" alt="waterbottle" />
+            <img src="/app/asset/images/waterbottle.jpg" alt="waterbottle" />
           </div>
         </div>
       </div>

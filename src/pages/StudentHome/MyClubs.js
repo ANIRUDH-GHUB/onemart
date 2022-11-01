@@ -4,6 +4,7 @@ import Loading from "../../common/Loading";
 import Sidebar from "../../component/Sidebar/Sidebar";
 import "react-loading-skeleton/dist/skeleton.css";
 import { getAllClubsById } from "../../services/clubService";
+import { Link } from "react-router-dom";
 
 const Products = () => {
   const [clubs, setClubs] = useState([]);
@@ -45,8 +46,7 @@ const Products = () => {
                   </div>
                   <div className="description">
                     <h2>{item.name}</h2>
-                    <h5>${item.description}</h5>
-                    <h5>${item.price}</h5>
+                    <h5>{item.description}</h5>
                     <p className="btn-remove" onClick={() => onDelete(index)}>
                       {" "}
                       <span className="btn2">Delete</span>
@@ -55,6 +55,11 @@ const Products = () => {
                 </div>
               ))}
             </Loading>
+            <div>
+              <Link to="../clubs/create" className="view-more create-new">
+                Add new
+              </Link>
+            </div>
           </div>
         </div>
       </div>

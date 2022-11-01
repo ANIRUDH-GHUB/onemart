@@ -27,7 +27,7 @@ const SuperAdmin = () => {
         <div className="herosection" id="home">
           <div className="hero-container">
             <img
-              src="/asset/icons/column-chart-example.svg"
+              src="/app/asset/icons/column-chart-example.svg"
               alt=""
               className="hero-image"
             />

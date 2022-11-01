@@ -312,24 +312,14 @@ const AppRoute = () => {
               }
             />
           </Route>
-          <Route path="myproducts">
-            <Route
-              path=""
-              element={
-                <ProtectedRoute role={userRole.author}>
-                  <MyProducts />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="sell"
-              element={
-                <ProtectedRoute role={userRole.author}>
-                  <CreateProduct />
-                </ProtectedRoute>
-              }
-            />
-          </Route>
+          <Route
+            path="myproducts"
+            element={
+              <ProtectedRoute role={userRole.author}>
+                <MyProducts />
+              </ProtectedRoute>
+            }
+          ></Route>
           <Route
             path="myclubs"
             element={
@@ -346,14 +336,24 @@ const AppRoute = () => {
               </ProtectedRoute>
             }
           ></Route>
-          <Route
-            path="products"
-            element={
-              <ProtectedRoute role={userRole.author}>
-                <Products />
-              </ProtectedRoute>
-            }
-          />
+          <Route path="products">
+            <Route
+              path=""
+              element={
+                <ProtectedRoute role={userRole.author}>
+                  <Products />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="sell"
+              element={
+                <ProtectedRoute role={userRole.author}>
+                  <CreateProduct />
+                </ProtectedRoute>
+              }
+            />
+          </Route>
 
           <Route path="posts">
             <Route

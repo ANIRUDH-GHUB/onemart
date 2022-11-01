@@ -53,7 +53,7 @@ const Payment = () => {
           <div className="card-stack">
             {paid ? (
               <div>
-                <img src="/asset/images/payment-success.gif" />
+                <img src="/app/asset/images/payment-success.gif" />
               </div>
             ) : (
               <>

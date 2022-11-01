@@ -2,31 +2,31 @@
   {
     "name": "Web 3.0",
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do ",
-    "image": "/asset/images/web3.JPG"
+    "image": "/app/asset/images/web3.JPG"
   },
   {
     "name": "Data Breach",
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut",
-    "image": "/asset/images/dataBreach.jpg"
+    "image": "/app/asset/images/dataBreach.jpg"
   },
   {
     "name": "Life Sciences",
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut",
-    "image": "/asset/images/lifeSciences.jpg"
+    "image": "/app/asset/images/lifeSciences.jpg"
   },
   {
     "name": "Web 3.0",
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do ",
-    "image": "/asset/images/web3.JPG"
+    "image": "/app/asset/images/web3.JPG"
   },
   {
     "name": "Data Breach",
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut",
-    "image": "/asset/images/dataBreach.jpg"
+    "image": "/app/asset/images/dataBreach.jpg"
   },
   {
     "name": "Halloween",
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut",
-    "image": "/asset/images/halloween.jpg"
+    "image": "/app/asset/images/halloween.jpg"
   }
 ]

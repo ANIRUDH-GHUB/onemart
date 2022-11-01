@@ -91,7 +91,7 @@ const Cart = () => {
           </div>
         ) : (
           <div class="empty-cart">
-            <img src="/asset/icons/empty.svg" />
+            <img src="/app/asset/icons/empty.svg" />
             <p>Uh-Oh your cart is empty</p>
           </div>
         )}

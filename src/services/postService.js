@@ -13,3 +13,8 @@ export const getAllPosts = async (title, content) => {
     .then((data) => data);
   return data;
 };
+
+export const getAllPostsById = async (id) => {
+  const res = await getAllPosts();
+  return res?.filter((item) => item?.author === id);
+};

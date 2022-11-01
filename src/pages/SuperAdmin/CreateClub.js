@@ -42,7 +42,7 @@ const CreateClub = () => {
           <div className="card-stack">
             <div className="card-item">
               <object
-                data="/asset/icons/login.svg"
+                data="/app/asset/icons/login.svg"
                 type="image/svg+xml"
                 style={{ width: "100%" }}
               ></object>

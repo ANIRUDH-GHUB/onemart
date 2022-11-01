@@ -30,8 +30,8 @@ const Navbar = () => {
     <header>
       <nav className="navbar fixed-top">
         <div className="navbar-container">
-          <a href="/#" className="navbar-brand">
-            <img src="/asset/icons/logo.svg" />
+          <a href="/app#" className="navbar-brand">
+            <img src="/app/asset/icons/logo.svg" />
           </a>
           <button
             className="nav-toggler"
@@ -44,20 +44,19 @@ const Navbar = () => {
             <div className="nav-collapse" id="navList">
               <ul className="nav-list">
                 <li className="nav-item">
-                  <Link
+                  <a
                     onClick={() => setToggle(false)}
                     className="nav-link active"
-                    aria-current="page"
-                    to="home"
+                    href="/app#"
                   >
                     Home
-                  </Link>
+                  </a>
                 </li>
                 <li className="nav-item">
                   <a
                     onClick={() => setToggle(false)}
                     className="nav-link"
-                    href="/#about"
+                    href="/app#about"
                   >
                     About
                   </a>
@@ -66,7 +65,7 @@ const Navbar = () => {
                   <a
                     onClick={() => setToggle(false)}
                     className="nav-link"
-                    href="/#services"
+                    href="/app#services"
                   >
                     Services
                   </a>
@@ -75,7 +74,7 @@ const Navbar = () => {
                   <a
                     onClick={() => setToggle(false)}
                     className="nav-link"
-                    href="/#contact"
+                    href="/app#contact"
                   >
                     Contact
                   </a>

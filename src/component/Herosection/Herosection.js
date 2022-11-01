@@ -6,17 +6,17 @@ const Herosection = () => {
   const productList = [
     {
       label: "StarBucks",
-      image: "/asset/images/machito.jpg",
+      image: "/app/asset/images/machito.jpg",
       description: "Machito Coffee",
     },
     {
       label: "M & M",
-      image: "/asset/images/mandm.jpg",
+      image: "/app/asset/images/mandm.jpg",
       description: "Chocolate",
     },
     {
       label: "Subway",
-      image: "/asset/images/sandwich.jpg",
+      image: "/app/asset/images/sandwich.jpg",
       description: "Footlong",
     },
   ];
@@ -24,17 +24,17 @@ const Herosection = () => {
   const placeList = [
     {
       label: "Subway",
-      image: "/asset/images/subway-open.jpg",
+      image: "/app/asset/images/subway-open.jpg",
       description: "Footlong",
     },
     {
       label: "StarBucks",
-      image: "/asset/images/starbucks-open.jpg",
+      image: "/app/asset/images/starbucks-open.jpg",
       description: "Machito Coffee",
     },
     {
       label: "Chick Fil A",
-      image: "/asset/images/chick-fil-a.jpg",
+      image: "/app/asset/images/chick-fil-a.jpg",
       description: "Open",
     },
   ];

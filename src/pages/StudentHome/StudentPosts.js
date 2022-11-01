@@ -16,7 +16,7 @@ const StudentPosts = () => {
             <h1>Explore Posts</h1>
             <div className="product">
               <div className="pdt_img">
-                <img src="/asset/images/dataBreach.jpg" alt="ok" />
+                <img src="/app/asset/images/dataBreach.jpg" alt="ok" />
               </div>
               <div className="description">
                 <h3>Data Breach</h3>
@@ -28,7 +28,7 @@ const StudentPosts = () => {
             </div>
             <div className="product">
               <div className="pdt_img">
-                <img src="/asset/images/lifeSciences.jpg" alt="ok" />
+                <img src="/app/asset/images/lifeSciences.jpg" alt="ok" />
               </div>
               <div className="description">
                 <h3>Life Sciences</h3>
@@ -40,7 +40,7 @@ const StudentPosts = () => {
             </div>
             <div className="product">
               <div className="pdt_img">
-                <img src="/asset/images/halloween.jpg" alt="ok" />
+                <img src="/app/asset/images/halloween.jpg" alt="ok" />
               </div>
               <div className="description">
                 <h3>Halloween</h3>
@@ -52,7 +52,7 @@ const StudentPosts = () => {
             </div>
             <div className="product">
               <div className="pdt_img">
-                <img src="/asset/images/bigdata.jpg" alt="ok" />
+                <img src="/app/asset/images/bigdata.jpg" alt="ok" />
               </div>
               <div className="description">
                 <h3>Big Data</h3>
@@ -65,7 +65,7 @@ const StudentPosts = () => {
           </div>
 
           <div className="price-details">
-            <img src="/asset/images/adbo1.jpg" alt="waterbottle" />
+            <img src="/app/asset/images/adbo1.jpg" alt="waterbottle" />
           </div>
         </div>
       </div>

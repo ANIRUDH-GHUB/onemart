@@ -9,7 +9,6 @@ const StudentHome = () => {
   const [posts, setPosts] = useState([]);
   const [products, setProducts] = useState([]);
   const [clubs, setClubs] = useState([]);
-  const [dataLoading, setDataLoading] = useState(true);
 
   const getPostData = (list) => list;
 
@@ -32,7 +31,7 @@ const StudentHome = () => {
       <div class="herosection" id="home">
         <div class="hero-container">
           <img
-            src="/asset/images/starbucks-open.jpg"
+            src="/app/asset/images/starbucks-open.jpg"
             alt=""
             class="hero-image"
           />
@@ -56,7 +55,7 @@ const StudentHome = () => {
                     backgroundImage: `url(${
                       item?.image
                         ? item?.image
-                        : "/asset/images/default-post.png"
+                        : "/app/asset/images/default-post.png"
                     })`,
                   }}
                 >
@@ -82,7 +81,7 @@ const StudentHome = () => {
                     backgroundImage: `url(${
                       item?.featured_image?.large
                         ? item?.featured_image?.large
-                        : "/asset/images/default-post.png"
+                        : "/app/asset/images/default-post.png"
                     })`,
                   }}
                 >
@@ -111,7 +110,7 @@ const StudentHome = () => {
                     backgroundImage: `url(${
                       item?.image
                         ? item?.image
-                        : "/asset/images/default-post.png"
+                        : "/app/asset/images/default-post.png"
                     })`,
                   }}
                 >
@@ -130,13 +129,11 @@ const StudentHome = () => {
 
         <div class="right-side-container">
           <div class="advertisement">
-            <img src="/asset/images/adbo1.jpg" alt="adbo" />
+            <img src="/app/asset/images/adbo1.jpg" alt="adbo" />
             <p> Grab your Deak NOW!! </p>
           </div>
           <div class="view-more advertise-btn">
-            <a href="bocreateAdvertisement.html" target="_blank">
-              Advertise
-            </a>
+            <a href="bocreateAdvertisement.html">Advertise</a>
           </div>
         </div>
       </div>

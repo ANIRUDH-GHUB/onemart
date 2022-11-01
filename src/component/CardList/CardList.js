@@ -40,7 +40,7 @@ const CardList = ({ propList, sell = false }) => {
       </div>
 
       <div className="price-details">
-        <img src="/asset/images/waterbottle.jpg" alt="waterbottle" />
+        <img src="/app/asset/images/waterbottle.jpg" alt="waterbottle" />
       </div>
     </div>
   );

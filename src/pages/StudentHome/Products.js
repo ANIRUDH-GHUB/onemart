@@ -5,6 +5,7 @@ import Sidebar from "../../component/Sidebar/Sidebar";
 import { getAllProducts } from "../../services/productService";
 import { addToCart } from "../../state/slices/cartSlice";
 import "react-loading-skeleton/dist/skeleton.css";
+import { Link } from "react-router-dom";
 
 const Products = () => {
   const [products, setProduct] = useState([]);
@@ -48,7 +49,7 @@ const Products = () => {
                   </div>
                   <div className="description">
                     <h2>{item.name}</h2>
-                    <h5>${item.description}</h5>
+                    <h5>{item.description}</h5>
                     <h5>${item.price}</h5>
                     <p
                       className="btn-remove"
@@ -61,6 +62,11 @@ const Products = () => {
                 </div>
               ))}
             </Loading>
+            <div>
+              <Link to="sell" className="view-more create-new">
+                Sell
+              </Link>
+            </div>
           </div>
         </div>
       </div>

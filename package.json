@@ -1,6 +1,7 @@
 {
   "name": "onemart",
   "version": "0.1.0",
+  "homepage": "https://nxg0191.uta.cloud/app",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.12.4",

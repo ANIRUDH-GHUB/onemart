@@ -60,9 +60,7 @@ const JoinedClubs = () => {
                     <h5>{item.description}</h5>
                     <p className="btn-remove">
                       {" "}
-                      <span className="btn2">
-                        {moment(item?.date).format("DD MMM YYYY hh:mm a")}
-                      </span>
+                      <span className="btn2">Leave</span>
                     </p>
                   </div>
                 </div>

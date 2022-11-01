@@ -58,7 +58,7 @@ const Clubs = () => {
                     src={
                       item?.image
                         ? item?.image
-                        : "/asset/images/default-post.png"
+                        : "/app/asset/images/default-post.png"
                     }
                     alt="ok"
                   />
@@ -89,18 +89,14 @@ const Clubs = () => {
               </div>
             ))}
             <div>
-              <Link
-                to="create"
-                className="view-more create-new"
-                target="_blank"
-              >
+              <Link to="create" className="view-more create-new">
                 Add new
               </Link>
             </div>
           </div>
 
           <div className="price-details">
-            <img src="/asset/images/waterbottle.jpg" alt="waterbottle" />
+            <img src="/app/asset/images/waterbottle.jpg" alt="waterbottle" />
           </div>
         </div>
       </div>
