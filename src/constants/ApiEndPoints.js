@@ -18,6 +18,7 @@ export const addSvc = "/wp-json/wp/v2/advertise";
 export const clubsSvc = "/wp-json/wp/v2/club";
 export const ordersSvc = "/wp-json/wp/v2/orders";
 export const joinedSvc = "/wp-json/wp/v2/joined";
+export const usersFullSvc = "/wp-json/wp/v2/users";
 
 //Custom
 export const usersSvc = "/wp-json/wl/v1/users";

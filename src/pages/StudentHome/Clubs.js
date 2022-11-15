@@ -5,6 +5,8 @@ import { getAllClubs } from "../../services/clubService";
 import LoadingButton from "../../common/LoadingButton";
 import { Link } from "react-router-dom";
 import { joinClub } from "../../services/joinedService";
+import Loading from "../../common/Loading";
+import Sidebar from "../../component/Sidebar/Sidebar";
 
 const Clubs = () => {
   const [clubs, setClubs] = useState([]);
@@ -47,47 +49,51 @@ const Clubs = () => {
       className="product_bo managePosts"
       style={{ backgroundColor: "#232659" }}
     >
+      <Sidebar />
+
       <div className="wrapper">
         <h1>Clubs</h1>
         <div className="cart">
           <div className="cartproducts">
-            {allProducts(clubs)?.map((item, index) => (
-              <div className="product" key={item.id}>
-                <div className="pdt_img">
-                  <img
-                    src={
-                      item?.image
-                        ? item?.image
-                        : "/app/asset/images/default-post.png"
-                    }
-                    alt="ok"
-                  />
-                </div>
-                <div className="description">
-                  <h3>{item.name}</h3>
-                  <h4
-                    dangerouslySetInnerHTML={{ __html: item?.description }}
-                  ></h4>
-                </div>
-                <div className="button-wrapper">
-                  {canJoin() && (
-                    <LoadingButton onClick={() => onJoined(index)}>
-                      Join
-                    </LoadingButton>
-                  )}
+            <Loading height={130} isLoading={dataLoading} count={3}>
+              {allProducts(clubs)?.map((item, index) => (
+                <div className="product" key={item.id}>
+                  <div className="pdt_img">
+                    <img
+                      src={
+                        item?.image
+                          ? item?.image
+                          : "/app/asset/images/default-post.png"
+                      }
+                      alt="ok"
+                    />
+                  </div>
+                  <div className="description">
+                    <h3>{item.name}</h3>
+                    <h4
+                      dangerouslySetInnerHTML={{ __html: item?.description }}
+                    ></h4>
+                  </div>
+                  <div className="button-wrapper">
+                    {canJoin() && (
+                      <LoadingButton onClick={() => onJoined(index)}>
+                        Join
+                      </LoadingButton>
+                    )}
 
-                  {canDelete(item) && (
-                    <LoadingButton
-                      isLoading={dataLoading}
-                      onClick={() => onDelete(index)}
-                      sx={{ backgroundColor: "#dc3545" }}
-                    >
-                      Delete
-                    </LoadingButton>
-                  )}
+                    {canDelete(item) && (
+                      <LoadingButton
+                        isLoading={dataLoading}
+                        onClick={() => onDelete(index)}
+                        sx={{ backgroundColor: "#dc3545" }}
+                      >
+                        Delete
+                      </LoadingButton>
+                    )}
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </Loading>
             <div>
               <Link to="create" className="view-more create-new">
                 Add new

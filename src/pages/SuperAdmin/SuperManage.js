@@ -5,6 +5,7 @@ import { userRole } from "../../constants/constants";
 import {
   deleteUser,
   getAllUsers,
+  getAllUsersByRole,
   updateUserDetails,
 } from "../../services/userService";
 import { alertMessage } from "../../util/util";
@@ -12,6 +13,7 @@ import "./SuperManageSudents.css";
 
 const SuperManage = ({ role }) => {
   const [users, setUsers] = useState([]);
+  const [usersRoles, setUsersByRoles] = useState([]);
   const [dataLoading, setDataLoading] = useState(true);
   const [isEditing, setEditing] = useState(false);
   const [values, setValues] = useState({
@@ -22,7 +24,7 @@ const SuperManage = ({ role }) => {
     email: "",
     password: "",
     dob: "",
-    role: [],
+    role: "",
   });
 
   const onDelete = async (user) => {
@@ -43,6 +45,7 @@ const SuperManage = ({ role }) => {
   };
 
   const onEdit = (user) => {
+    console.log(user);
     setValues({
       ...values,
       ...user,
@@ -69,9 +72,21 @@ const SuperManage = ({ role }) => {
 
   useEffect(() => {
     async function fetchData() {
-      const res = await getAllUsers();
-      if (res) setDataLoading(false);
-      setUsers(res);
+      let res1 = await getAllUsers();
+      let res2 = await getAllUsersByRole();
+
+      if (res1) setDataLoading(false);
+      // res1.map((item, index)=>{
+
+      // })
+      res1 = res1.sort((a, b) => a.id - b.id || a.name.localeCompare(b.name));
+      res2 = res2.sort((a, b) => a.id - b.id || a.name.localeCompare(b.name));
+      setUsers(
+        res1.map((item, index) => {
+          return { ...res2[index], ...item.acf };
+        })
+      );
+      // setUsersByRoles(res2);
     }
     fetchData();
   }, [isEditing]);
@@ -99,7 +114,6 @@ const SuperManage = ({ role }) => {
             </thead>
             <tbody>
               {users
-                .sort((a, b) => a.id - b.id || a.name.localeCompare(b.name))
                 .filter((user) => user.role === role)
                 .map((user) => (
                   <tr>
@@ -173,6 +187,20 @@ const SuperManage = ({ role }) => {
                     onChange={(e) => handleChange(e, "email")}
                   />
                   <label className="form-label">Email Address</label>
+                </div>
+                <div className="form-control" value={values.role}>
+                  <select
+                    name="cars"
+                    id="cars"
+                    value={values.role}
+                    onChange={(e) => handleChange(e, "role")}
+                  >
+                    <option value="author">Student</option>
+                    <option value="contributor">Business Owner</option>
+                    <option value="editor">School Admin</option>
+                  </select>
+
+                  <label className="form-label">Role</label>
                 </div>
 
                 {!isEditing && (

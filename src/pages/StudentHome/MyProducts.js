@@ -2,7 +2,10 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import Loading from "../../common/Loading";
 import Sidebar from "../../component/Sidebar/Sidebar";
-import { getAllProductsById } from "../../services/productService";
+import {
+  deleteProductById,
+  getAllProductsById,
+} from "../../services/productService";
 import { addToCart } from "../../state/slices/cartSlice";
 import "react-loading-skeleton/dist/skeleton.css";
 import { Link } from "react-router-dom";
@@ -25,10 +28,9 @@ const Products = () => {
   const ownerProduct = (products) => products.map((product) => product.acf);
 
   const onBuyorReturn = (e, index) => {
-    e.target.style.backgroundColor = "#aaaaaa";
-    e.target.style.pointerEvents = "none";
-
-    dispatch(addToCart(products[index]));
+    const newProduct = products.filter((item, ind) => ind !== index);
+    setProduct(newProduct);
+    deleteProductById(products[index].id);
   };
 
   return (

@@ -85,7 +85,9 @@ const Navbar = () => {
                       <button className="dropbtn">My Profile</button>
                       <div className="dropdown-content">
                         <Link to={fetchUserRole()}>Profile</Link>
-                        <Link to="/cart">My Cart</Link>
+                        {localStorage.getItem("user_role") === "student" && (
+                          <Link to="/cart">My Cart</Link>
+                        )}
                         <Link to="/" onClick={handleLogout}>
                           Sign Out
                         </Link>

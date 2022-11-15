@@ -59,3 +59,22 @@ export const getAllClubsById = async (id) => {
   const res = await getAllClubs();
   return res?.filter((club) => club?.acf?.owner === id);
 };
+export const deleteClubsById = async (id) => {
+  const clubUrl = hostName + clubsSvc + "/" + id;
+
+  const data = await fetch(clubUrl, {
+    method: "DELETE",
+    headers: {
+      Authorization: "Bearer " + localStorage.getItem("admin_token"),
+      "Content-Type": "application/json",
+    },
+  })
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
+      }
+      throw new Error("Network response was not ok.");
+    })
+    .then((response) => response);
+  return data;
+};

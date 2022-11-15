@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import Loading from "../../common/Loading";
 import Sidebar from "../../component/Sidebar/Sidebar";
 import "react-loading-skeleton/dist/skeleton.css";
-import { getAllClubsById } from "../../services/clubService";
+import { deleteClubsById, getAllClubsById } from "../../services/clubService";
 import { Link } from "react-router-dom";
 
 const Products = () => {
@@ -26,6 +26,7 @@ const Products = () => {
   const onDelete = (index) => {
     const newList = clubs.filter((item, ind) => ind !== index);
     setClubs(newList);
+    deleteClubsById(clubs[index].id);
   };
 
   return (

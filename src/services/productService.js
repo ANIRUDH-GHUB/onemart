@@ -58,3 +58,23 @@ export const getAllProductsById = async (id) => {
   const res = await getAllProducts();
   return res?.filter((product) => product?.acf?.owner === id);
 };
+
+export const deleteProductById = async (id) => {
+  const prodcutUrl = hostName + productSvc + "/" + id;
+
+  const data = await fetch(prodcutUrl, {
+    method: "DELETE",
+    headers: {
+      Authorization: "Bearer " + localStorage.getItem("admin_token"),
+      "Content-Type": "application/json",
+    },
+  })
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
+      }
+      throw new Error("Network response was not ok.");
+    })
+    .then((response) => response);
+  return data;
+};

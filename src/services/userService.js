@@ -1,7 +1,12 @@
-import { hostName, registerSvc, usersSvc } from "../constants/ApiEndPoints";
+import {
+  hostName,
+  registerSvc,
+  usersFullSvc,
+  usersSvc,
+} from "../constants/ApiEndPoints";
 
 export const getAllUsers = async () => {
-  const usersUrl = hostName + usersSvc;
+  const usersUrl = hostName + usersFullSvc;
   let data = await fetch(usersUrl, {
     method: "GET",
     headers: {
@@ -15,6 +20,20 @@ export const getAllUsers = async () => {
   return data;
 };
 
+export const getAllUsersByRole = async () => {
+  const usersUrl = hostName + usersSvc;
+  let data = await fetch(usersUrl, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + localStorage.getItem("admin_token"),
+    },
+  })
+    .then((response) => response.json())
+    .then((res) => res)
+    .catch((error) => console.log("Error"));
+  return data;
+};
 export const deleteUser = async (id) => {
   const usersUrl = `${hostName}${registerSvc}/${id}`;
   let data = await fetch(usersUrl, {

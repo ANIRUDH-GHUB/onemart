@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
 import LoadingButton from "../../common/LoadingButton";
 import { addPostSvc, hostName } from "../../constants/ApiEndPoints";
-import { getAllPosts } from "../../services/postService";
+import { deletePostsById, getAllPosts } from "../../services/postService";
 
 const Posts = () => {
   const [posts, setPosts] = useState([]);
 
-  const onDelete = (index) => {
+  const onDelete = async (index) => {
     const newList = posts.filter((item, ind) => ind !== index);
     setPosts(newList);
+    const res = await deletePostsById(posts[index].id);
   };
   const canDelete = (item) =>
     localStorage.getItem("user_role") === "superadmin" ||

@@ -22,10 +22,6 @@ import Orders from "../pages/StudentHome/Orders";
 import StudentHome from "../pages/StudentHome/StudentHome";
 import Products from "../pages/StudentHome/Products";
 import SuperAdmin from "../pages/SuperAdmin/SuperAdmin";
-import SuperCreateBusiness from "../pages/SuperAdmin/SuperCreateBusiness";
-import SuperCreateSchools from "../pages/SuperAdmin/SuperCreateSchools";
-import SuperCreateStudent from "../pages/SuperAdmin/SuperCreateStudent";
-import SuperManageClubs from "../pages/SuperAdmin/SupermanageClubs";
 import Posts from "../pages/SuperAdmin/Posts";
 
 import Unathorised from "../pages/Unathorised/Unathorised";
@@ -61,14 +57,6 @@ const AppRoute = () => {
               element={
                 <ProtectedRoute role={userRole.administrator}>
                   <SuperManage role="contributor" />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="create"
-              element={
-                <ProtectedRoute role={userRole.administrator}>
-                  <SuperCreateBusiness />
                 </ProtectedRoute>
               }
             />
@@ -118,14 +106,6 @@ const AppRoute = () => {
                 </ProtectedRoute>
               }
             />
-            <Route
-              path="create"
-              element={
-                <ProtectedRoute role={userRole.administrator}>
-                  <SuperCreateSchools />
-                </ProtectedRoute>
-              }
-            />
           </Route>
           <Route path="students">
             <Route
@@ -133,14 +113,6 @@ const AppRoute = () => {
               element={
                 <ProtectedRoute role={userRole.administrator}>
                   <SuperManage role="author" />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="create"
-              element={
-                <ProtectedRoute role={userRole.administrator}>
-                  <SuperCreateStudent />
                 </ProtectedRoute>
               }
             />
@@ -161,14 +133,6 @@ const AppRoute = () => {
               element={
                 <ProtectedRoute role={userRole.editor}>
                   <SuperManage role="contributor" />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="create"
-              element={
-                <ProtectedRoute role={userRole.editor}>
-                  <SuperCreateBusiness />
                 </ProtectedRoute>
               }
             />
@@ -215,14 +179,6 @@ const AppRoute = () => {
               element={
                 <ProtectedRoute role={userRole.editor}>
                   <SuperManage role="author" />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="create"
-              element={
-                <ProtectedRoute role={userRole.editor}>
-                  <SuperCreateStudent />
                 </ProtectedRoute>
               }
             />
