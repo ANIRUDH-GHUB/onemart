@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import LoadingButton from "../../common/LoadingButton";
 import { userRole } from "../../constants/constants";
+import { singup } from "../../services/loginService";
 import {
   deleteUser,
   getAllUsers,
@@ -34,18 +35,32 @@ const SuperManage = ({ role }) => {
     setDataLoading(false);
     alertMessage(res?.message);
     setUsers(newList);
+    setValues({
+      username: "",
+      id: "",
+      first_name: "",
+      last_name: "",
+      email: "",
+      password: "",
+      dob: "",
+      role: "",
+    });
   };
 
   const onUpdate = async (event) => {
     setDataLoading(true);
-    const res = await updateUserDetails(values);
+    let res;
+    if (isEditing) {
+      res = await updateUserDetails(values);
+    } else {
+      res = await singup(values);
+    }
     setDataLoading(false);
     alertMessage(res?.message);
     setEditing(false);
   };
 
   const onEdit = (user) => {
-    console.log(user);
     setValues({
       ...values,
       ...user,
@@ -143,6 +158,17 @@ const SuperManage = ({ role }) => {
           <div className="card-item">
             <div className="card-body p-4 p-lg-5 text-black">
               <form>
+                {!isEditing && (
+                  <div className="form-control">
+                    <input
+                      value={values.username}
+                      type="text"
+                      id="form2Example17"
+                      onChange={(e) => handleChange(e, "username")}
+                    />
+                    <label className="form-label">Username</label>
+                  </div>
+                )}
                 <div className="form-control">
                   <input
                     value={values.name}
